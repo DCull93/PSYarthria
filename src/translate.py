@@ -1,28 +1,13 @@
-class Trans():
-    ''' 
-    def __init__(self, origWord, lan):
-        self.origWord = origWord
-        self.lan = lan
-    '''
-    def englishLan():
+import wave
 
-        pass
+class Trans():
 
     def koreanLan(self, btnName):
-        lists = ["hello", "btn", "kimchi", ""]
-        for btnName in lists:
-            # Do translation, i.e. run the sound file for the chosen word
-            print btnName
-        '''
-        for word in lists:
-            if word in name:
-                # Do the translation
-                print name
-        '''
+        lists = ["hello", "btn", "kimchi", "shinbal"]
+        # Do translation, i.e. run the sound file for the chosen word
+        if btnName in lists:
+            # Double check this shit, it's in read only mode, as long as it's hardcoded
+            # There should be no way of it fucking up, however I feel uneasy about the 
+            # way it's coded
+            wave.open('/Users/wes/Desktop/Uni/5th/group_proj/code/PSYarthria/src/sounds/korean/%s.wave' % btnName, 'r')
 
-        
-    
-    def wordTrans(origWord, lang):
-        pass
-
-        # Translates 
