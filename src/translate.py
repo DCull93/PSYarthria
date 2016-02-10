@@ -8,12 +8,15 @@ class Trans():
 
         pass
 
-    def koreanLan(self, name):
-        lists = ["hello", "btn", "kimchi"]
-        print name
+    def koreanLan(self, btnName):
+        lists = ["hello", "btn", "kimchi", ""]
+        for btnName in lists:
+            # Do translation, i.e. run the sound file for the chosen word
+            print btnName
         '''
         for word in lists:
             if word in name:
+                # Do the translation
                 print name
         '''
 
