@@ -3,9 +3,7 @@
 '''
  - Split each bit up into different widgets, for example. options widget(I want to), Language Widget(Korean),
  - Build a gui bar where options can be passed in
- - Add voice functionality 
  - Add gui drag and drop functionanlity
- - Lang choice selection opens new buttons etc
  - Add ability to go back and forth
  - Can be implemented with if "Back" in self.backBtn.text() and if "Forward" in self.forwardBtn.text()
 '''
@@ -21,6 +19,7 @@ qt_app = QApplication(sys.argv)
 class gui(QLabel):
   
   def __init__(self):
+      # These lables appear to be redundant
       QLabel.__init__(self, "No idea")
 
       self.sal_lbl = QLabel("yoyoyo", self)
@@ -65,17 +64,18 @@ class gui(QLabel):
 
       if "I want" in self.optionBtn.text():
           self.optionBtn.hide()
-          self.kimchiBtn = QPushButton('kimchi', self)
-          self.kimchiBtn.show()
-          self.kimchiBtn.move(50, 200)
-          self.shinbalBtn = QPushButton('shinbal', self)
-          self.shinbalBtn.show()
-          self.shinbalBtn.move(50, 100)
+          self.foodBtn = QPushButton('food', self)
+          self.foodBtn.show()
+          self.foodBtn.move(50, 200)
+          self.hotelBtn = QPushButton('hotel', self)
+          self.hotelBtn.show()
+          self.hotelBtn.move(50, 100)
           # Call the koreanLan method to translate the chosen word
           # Little bug here, where the "Korean" button still has a signal handler to 
           # the KoreanLan function, which we need to kill
-          self.kimchiBtn.clicked.connect(lambda: trans.koreanLan(self.kimchiBtn.text()))
-          self.shinbalBtn.clicked.connect(lambda: trans.koreanLan(self.shinbalBtn.text()))
+          self.foodBtn.clicked.connect(lambda: trans.koreanLan(self.foodBtn.text(), self.optionBtn.text()))
+          self.hotelBtn.clicked.connect(lambda: trans.koreanLan(self.hotelBtn.text(), self.optionBtn.text()))
+
 
   def back(self):
       if "Back" in self.backBtn.text():
