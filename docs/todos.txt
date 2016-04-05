@@ -1,0 +1,14 @@
+####### To Do's ########
+
+Duncan Cull's part: FrontEnd Development
+ - Implement Indirect and Direct selection features
+
+
+
+
+Wes Renshaw's part: Backend Development
+ - Implement Configuration Setup
+ - In Memory storage (Pickels/Or Redis)
+ - Code the Google Translate API
+ - Social Templates, Words, Phrases
+

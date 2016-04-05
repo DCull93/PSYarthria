@@ -3,10 +3,23 @@ import wave
 import sys
 
 CHUNK = 1024
+MALE = False
+FEMALE = False
 
 class Trans():
+    '''
+    def gender(self, genderOption):
+        if "Male" in genderOption:
+            MALE = True
+        elif "Female" in genderOption:
+            FEMALE = True
+    '''  
+
+    def englishLan(self, btnName, btnOption):
+        pass
 
     def koreanLan(self, btnName, btnOption):
+        # This list needs to be populated via text to speech engine or Google Translate online first
         lists = ["food", "hotel"]
         # Do translation, i.e. run the sound file for the chosen word
         if btnName in lists and "I want" in btnOption:

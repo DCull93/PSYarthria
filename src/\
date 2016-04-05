@@ -1,0 +1,14 @@
+# Configuration class which sets up vocabulary, words, phrases etc from google trasnlate
+#import goslate
+
+class Config():
+
+  def phrases(self, text):
+  # Allow users to add word, phrases, lists of phrases, this will be an object in memory
+      phrase = []
+
+      phrase.append(text)
+
+      for i in phrase:
+          print i
+   
