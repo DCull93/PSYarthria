@@ -6,12 +6,11 @@ import sys, subprocess
 CHUNK = 1024
 '''
 
-""" Audio Class to support different OperatingSs """
+""" Audio Class to support different OperatingSystems """
 class Audio():
 
     def playMp3(self, sound):
         # Pass the mp3 file to the afplay tool, os x specific (Maybe)
-        # Maybe place a check here for btnCheck
         subprocess.call(["afplay", "%s.mp3" % sound])
 
     '''

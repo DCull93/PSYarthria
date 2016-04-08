@@ -1,6 +1,16 @@
 #!/usr/bin/env python
 
-import sys
+'''
+ - Remove deprecation warning about media library
+ - Add gender specific vocals
+ - Split each bit up into different widgets, for example. options widget(I want to), Language Widget(Korean),
+ - Build a gui bar where options can be passed in
+ - Add gui drag and drop functionanlity
+ - Add ability to go back and forth
+ - Can be implemented with if "Back" in self.backBtn.text() and if "Forward" in self.forwardBtn.text()
+'''
+
+import sys, os
 from translate import *
 from PySide.QtCore import *
 from PySide.QtGui import *
@@ -12,7 +22,7 @@ qt_app = QApplication(sys.argv)
 # Create instances of objects
 config = Config()
 
-class Gui(QLabel):
+class gui(QLabel):
   
   def __init__(self):
       trans = Audio()
@@ -37,24 +47,11 @@ class Gui(QLabel):
       self.backBtn.clicked.connect(self.back)
       '''
 
-      """ UserInput Form button """
+      # UserInput Form button
       self.phraseBtn = QPushButton('Phrases', self)
       self.phraseBtn.show()
-      self.phraseBtn.move(400, 14)
       self.phraseBtn.clicked.connect(lambda: self.userInput())
-
-      """ Language Choice button """
-      self.langChoiceBtn = QPushButton('Language', self)
-      self.langChoiceBtn.show()
-      self.langChoiceBtn.move(7, 10)
-      self.langChoiceBtn.clicked.connect(lambda: self.chooseLang())
-
-      """ Show Phrase Buttons """
-      self.showPhraseBtn = QPushButton('Show Phrases', self)
-      self.showPhraseBtn.show()
-      self.showPhraseBtn.move(400, 60)
-      self.showPhraseBtn.clicked.connect(lambda: self.showPhrases())
-
+      
       """ Redis delete buton - Need to move or delete """
       self.redisDelBtn = QPushButton('Delete Configuration', self)
       self.redisDelBtn.move(10, 50)
@@ -70,41 +67,25 @@ class Gui(QLabel):
       self.phraseBtn.show()
       self.phraseBtn.clicked.connect(lambda: self.userInput)
   '''
-  
+
   def userInput(self):
       # Allow user phrase input and pass to config class
+      self.myNameLE = QLineEdit(self)
       self.text, ok = QInputDialog.getText(self, 'Input Dialog', 'Enter phrases: ')
       if ok: 
-          # Save phrases to a file, I hate doing this so it needs resolving
-          with open("phrases.txt", "ab") as f:
-              f.write(self.text + '\n')
+          """ This Func needs to pass unique id/text for each btn back to phrase func """
+          """ Dynamically create phrase buttons """
+          self.phraseBtns = QPushButton('%s' % self.text, self)
+          #self.phraseBtns.setObjectName('phraseBtn-%s' % self.text)
+          """ Horrible Hack, but dynamically positions buttons """
+          i = len(self.text) * 25
+          self.phraseBtns.show()
+          self.phraseBtns.move(len(self.text), i)
 
-  def chooseLang(self):
-      self.langText, ok = QInputDialog.getText(self, 'Input Dialog', 'Choose Language: ')
-      if ok:
-         """ Need to pass this into config """
-         config.langInit(self.langText) 
+          """ Call sound function whenenver a phrase button is pressed """
+          #self.phraseBtns.clicked.connect(lambda: config.phrases(self.text) )
 
-  def showPhrases(self):
-      '''
-      try and pass the text, buttons etc and do calls and signal handling here 
-      '''
-      """ Open phrases text and parse through them creating new buttons dynamically """
-      with open("phrases.txt", "rb") as f:
-          phrases = f.read()
-          linePhrase = phrases.split('\n')
-          for word in linePhrase:
-              """ Dirty hack to move buttons dynamically based off of the word length """
-              i = len(word) * 25
-              self.phraseBtns = QPushButton(word, self)
-              self.phraseBtns.show()
-              self.phraseBtns.move(10, i)
-              """ Call the play phrases function and pass in the phrase button name """
-              self.playPhrases(self.phraseBtns)
-
-  def playPhrases(self, phraseBtn):
-      phraseBtn.clicked.connect(lambda: config.phrases(phraseBtn.text() ))
-      
+          config.phrases(str(self.text))
 
   def redisWipe(self):
       p = ''
@@ -115,5 +96,5 @@ class Gui(QLabel):
       self.show()
       qt_app.exec_()
 
-app = Gui()
+app = gui()
 app.run()

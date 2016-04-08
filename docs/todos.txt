@@ -9,12 +9,13 @@ Duncan Cull's part: FrontEnd Development
 
 Wes Renshaw's part: Backend Development
  - Implement Configuration Setup, currently doing, we can translate phrases into an language and play them ,(sound files need to be in memory (working on it)
+ - Develop a setup.py script that downloads and installs everything needed to run the application
  
  (fixed tlls Python package to translation stuff and added Redis support)
 
  List libraries that have been used and explain what they're for:
 
- - For speech, each OS has a way to interact and speak text, so part of the code will 
+ - For speech, each OS has a way to interact and speak text, so the audio class will fix this
  - Limit the amount of characters that the phrase can say
 
  Submit:
