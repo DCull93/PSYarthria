@@ -12,7 +12,7 @@ class Audio():
     def playMp3(self, sound):
         # Pass the mp3 file to the afplay tool, os x specific (Maybe)
         # Maybe place a check here for btnCheck
-        subprocess.call(["afplay", "%s.mp3" % sound])
+        subprocess.call(["afplay", "sounds/%s.mp3" % sound])
 
     '''
     # Implementation to play wave sound files, (also might be redundant)

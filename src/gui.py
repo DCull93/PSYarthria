@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import sys
-from translate import *
 from PySide.QtCore import *
 from PySide.QtGui import *
 from configureSet import *
@@ -12,18 +11,23 @@ qt_app = QApplication(sys.argv)
 # Create instances of objects
 config = Config()
 
-class Gui(QLabel):
+class Gui(QMainWindow):
   
   def __init__(self):
-      trans = Audio()
+      """ Initialise main windows """
       # These lables appear to be redundant
-      QLabel.__init__(self, "No idea")
+      #QLabel.__init__(self, "No idea")
+      QMainWindow.__init__(self)
 
-      self.sal_lbl = QLabel("yoyoyo", self)
+      #QWidget.__init__(self)
+      """ Call Config Layout """
+      #self.configLayout()
+
+      #self.sal_lbl = QLabel("yoyoyo", self)
 
       self.setMinimumSize(QSize(600, 400))
-      self.setAlignment(Qt.AlignCenter)
-      self.setWindowTitle("Yo")
+      #self.setAlignment(Qt.AlignCenter)
+      #self.setWindowTitle("Yo")
       
       # Create back and forward buttons
       '''
@@ -36,6 +40,16 @@ class Gui(QLabel):
       # into widgets or some shit
       self.backBtn.clicked.connect(self.back)
       '''
+
+      """ Create Main Window """
+      self.configLayout()
+
+  def configLayout(self):
+      """ Layout and buttons for the congiguration setup """
+      """ Configuration Button """
+      self.transSetupBtn = QPushButton('Set Translations up', self)
+      self.transSetupBtn.show()
+      self.transSetupBtn.move(500, 10)
 
       """ UserInput Form button """
       self.phraseBtn = QPushButton('Phrases', self)
@@ -54,6 +68,12 @@ class Gui(QLabel):
       self.showPhraseBtn.show()
       self.showPhraseBtn.move(400, 60)
       self.showPhraseBtn.clicked.connect(lambda: self.showPhrases())
+
+      self.chooseLang()
+      self.showPhrases()
+      self.redisLayout()
+
+  def redisLayout(self):
 
       """ Redis delete buton - Need to move or delete """
       self.redisDelBtn = QPushButton('Delete Configuration', self)
@@ -79,6 +99,9 @@ class Gui(QLabel):
           with open("phrases.txt", "ab") as f:
               f.write(self.text + '\n')
 
+          """ Call phrases to download sounds """
+          config.phrases(self.text)
+
   def chooseLang(self):
       self.langText, ok = QInputDialog.getText(self, 'Input Dialog', 'Choose Language: ')
       if ok:
@@ -103,7 +126,7 @@ class Gui(QLabel):
               self.playPhrases(self.phraseBtns)
 
   def playPhrases(self, phraseBtn):
-      phraseBtn.clicked.connect(lambda: config.phrases(phraseBtn.text() ))
+      phraseBtn.clicked.connect(lambda: config.playSounds(phraseBtn.text() ))
       
 
   def redisWipe(self):
