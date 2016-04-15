@@ -1,7 +1,7 @@
 # Configuration class which sets up vocabulary, words, phrases etc from google trasnlate
 #from gtts import gTTS
 from BingTranslator import Translator, AudioSpeaked
-from translate import *
+from audio import *
 import redis
 import os, glob
 
@@ -38,11 +38,12 @@ class Config():
       self.bingInit()
       """ Create translator object with creds """
       translator = Translator(self.client_id, self.client_secret)
-      """ Request translation of given text in mp3 format """
-      url = translator.speak_phrase(text, self.lang, "audio/mp3", "MaxQuality")
+      """ Request translation of given text """
+      phrase_trans = translator.translate(text, self.lang)
+      """ Download MP3 sound of translation """
+      url = translator.speak_phrase(phrase_trans, self.lang, "audio/mp3", "MaxQuality")
       """ Download and save audio file """
       AudioSpeaked.download(url, "sounds/", "%s.mp3" % text)
-      #DownloadAudio.download(url, "sounds/", "%s.mp3" % text)
 
   def playSounds(self, text):
       """ Create Audio Instance """

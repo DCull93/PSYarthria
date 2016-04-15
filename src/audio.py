@@ -12,11 +12,13 @@ class Audio():
     def playMp3(self, sound):
         # Pass the mp3 file to the afplay tool, os x specific (Maybe)
         # Maybe place a check here for btnCheck
-        subprocess.call(["afplay", "sounds/%s.mp3" % sound])
+        #for item in sound[:len(sound)]:
+        for phrase in sound:
+            subprocess.call(["afplay", "sounds/%s.mp3" % phrase])
 
     '''
     # Implementation to play wave sound files, (also might be redundant)
-    def playSound(self, sound):
+    def playSound(self, sound):sounds/
         p = pyaudio.PyAudio()
         stream = p.open(format=p.get_format_from_width(sound.getsampwidth()),
                         channels=sound.getnchannels(),
