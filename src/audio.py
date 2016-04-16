@@ -1,5 +1,5 @@
-#import pyaudio
-#import wave 
+import pyaudio
+import wave 
 import sys, subprocess
 
 CHUNK = 1024
@@ -14,21 +14,7 @@ class Audio():
         for phrase in sound:
             subprocess.call(["afplay", "sounds/%s.mp3" % phrase])
 
-    # Implementation to play wave sound files, (also might be redundant)
+    # Implementation to play wave sound files for Debian Support (Linux)
     def playWave(self, sound):
-        p = pyaudio.PyAudio()
-        stream = p.open(format=p.get_format_from_width(sound.getsampwidth()),
-                        channels=sound.getnchannels(),
-                        rate=sound.getframerate(),
-                        output=True)
-        data = sound.readframes(CHUNK)
-
-        while data != '':
-            stream.write(data)
-            data = sound.readframes(CHUNK)
-
-        stream.stop_stream()
-        stream.close()
-
-        p.terminate()
-
+	for word in sound:
+	    subprocess.call(["aplay", "sounds/%s.wav" % word])

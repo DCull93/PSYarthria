@@ -67,9 +67,11 @@ class Config():
               print "[*] Operating System no supported..."
       elif platform.uname()[1] == "debian":
           """ Open wave file corresponding to the text input """
-          waveSound = wave.open('sounds/%s.wav' % text, 'rb')
+          #waveSound = wave.open('sounds/%s.wav' % text, 'r')
           """ Pass wave file format to playWave function for parsing """
-          pS.playWave(waveSound)
+	 # print waveSound
+	  """ Format String """
+          pS.playWave(text)
   
   def keyDel(self, redisDelBtn, p):
 
@@ -77,6 +79,8 @@ class Config():
           print "[*] Deleting Phrases and MP3s..." 
           """ Remove the phrase buttons """
           for filename in glob.glob('sounds/*.mp3'):
+              os.remove(filename)
+          for filename in glob.glob('sounds/*.wav'):
               os.remove(filename)
           for phraseFile in glob.glob('phrases.txt'):
               os.remove(phraseFile)
