@@ -2,11 +2,9 @@
 #import wave 
 import sys, subprocess
 
-'''
 CHUNK = 1024
-'''
 
-""" Audio Class to support different OperatingSs """
+""" Audio Class to support different Operating Systems """
 class Audio():
 
     def playMp3(self, sound):
@@ -16,9 +14,8 @@ class Audio():
         for phrase in sound:
             subprocess.call(["afplay", "sounds/%s.mp3" % phrase])
 
-    '''
     # Implementation to play wave sound files, (also might be redundant)
-    def playSound(self, sound):sounds/
+    def playWave(self, sound):
         p = pyaudio.PyAudio()
         stream = p.open(format=p.get_format_from_width(sound.getsampwidth()),
                         channels=sound.getnchannels(),
@@ -34,4 +31,4 @@ class Audio():
         stream.close()
 
         p.terminate()
-   '''
+

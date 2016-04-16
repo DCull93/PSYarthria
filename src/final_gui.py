@@ -9,8 +9,10 @@ class Ui_MainWindow(object):
         """ Initialise instances and structures """
         self.config = Config()
         self.phraseList = []
+        self.verbList = []
 
     def setupUi(self, MainWindow):
+        """ Sets main window and central widget up """
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(894, 742)
         self.centralwidget = QtGui.QWidget(MainWindow)
@@ -18,13 +20,22 @@ class Ui_MainWindow(object):
         self.widget = QtGui.QWidget(self.centralwidget)
         self.widget.setGeometry(QtCore.QRect(0, 50, 491, 671))
         self.widget.setObjectName("widget")
-
+        
+        """ Sets the Add Phrases button in """
         self.btn_addPhrases = QtGui.QPushButton(self.widget)
         self.btn_addPhrases.setGeometry(QtCore.QRect(140, 10, 71, 61))
         self.btn_addPhrases.setStyleSheet("background-color: rgb(170, 170, 255);\n"
 "color: rgb(255, 255, 255);\n"
 "border: 1px solid black;")
         self.btn_addPhrases.setObjectName("btn_AddPhrases")
+        
+        """ Add static Phrases """
+        self.btn_Iam = QtGui.QPushButton(self.widget)
+        self.btn_Iam.setGeometry(QtCore.QRect(160, 20, 81, 71))
+        self.btn_addPhrases.setStyleSheet("background-color: rgb(180, 180, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"border: 1px solid black;")
+        self.btn_addPhrases.setObjectName("btn_Iam")
 
         self.btn_deleteConfig = QtGui.QPushButton(self.widget)
         self.btn_deleteConfig.setGeometry(QtCore.QRect(260, 10, 71, 61))
@@ -54,15 +65,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.btn_delWord)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtGui.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        """ Add text on static buttons """
+        """ Add text to buttons in Main window Widgets """
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Language.setText(QtGui.QApplication.translate("MainWindow", "Language", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Speak.setText(QtGui.QApplication.translate("MainWindow", "Speak", None, QtGui.QApplication.UnicodeUTF8))
@@ -71,6 +79,8 @@ class Ui_MainWindow(object):
         self.btn_delWord.setText(QtGui.QApplication.translate("MainWindow", "Delete \n" " Word", None, QtGui.QApplication.UnicodeUTF8))
 
         self.btn_deleteConfig.setText(QtGui.QApplication.translate("MainWindow", "Delete Configuration", None, QtGui.QApplication.UnicodeUTF8))
+
+        self.btn_Iam.setText(QtGui.QApplication.translate("MainWindow", "I am", None, QtGui.QApplication.UnicodeUTF8))
 
         """ Perform actions on button presses """
         self.btn_addPhrases.clicked.connect(lambda: self.userInput())
@@ -81,9 +91,12 @@ class Ui_MainWindow(object):
         self.btn_delWord.clicked.connect(lambda: self.wordDelete())
         """ Pass array into speak parser """
         self.btn_Speak.clicked.connect(lambda: self.config.playSounds(self.phraseList) )
+        """ Call verb phrases, to download translated text and append to verb array """
+        self.btn_Iam.clicked.connect(lambda: self.verbPhrases(self.btn_Iam.text()) )
 
     def wordDelete(self):
         self.phraseList.pop()
+        self.verbList.pop()
 
     def chooseLang(self):
         self.langText, ok = QtGui.QInputDialog.getText(self.widget, 'Input Dialog', 'Choose Language: ')
@@ -123,33 +136,33 @@ class Ui_MainWindow(object):
             self.phraseBtns.move(10, i)
             self.phraseBtns.setText(QtGui.QApplication.translate("MainWindow", word, None, QtGui.QApplication.UnicodeUTF8))
             self.phraseBtns.show()
-            """ Call the play phrases function and pass in the phrase button name """
-            #self.playPhrases(self.phraseBtns)
-            #self.phraseBtns.clicked.connect(lambda: self.passToBar(self.phraseBtns, phraseBtns.text()) )
             """ Call passToBar and pass phrases that are then store in an array """
             self.passToBar(self.phraseBtns)
 
+    def verbPhrases(self, text):
+        """ Call phrases and download translation of given text """
+        self.config.phrases(text)
+        """ Pass this text to the speak bar """
+        self.passToBar(self.btn_Iam)
+
     def passToBar(self, phraseBtn):
-        """ Pass phrase button text that gets pressed to append function """
+        """ Pass phrase button text which will then get appended to the relative list """
         phraseBtn.clicked.connect(lambda: self.appendPhrases(phraseBtn.text()) )
 
     def appendPhrases(self, phrases):
         """ Append button text to the array list for the speak function """
-        self.phraseList.append(phrases)
-
-    #def playPhrases(self, phraseBtn):
-        ''' Pass list of texts in (array) that gets passed into bar '''
-        ''' btn_Speak is for built sentences'''
-        #self.btn_Speak.clicked.connect(lambda: self.config.playSounds(phraseBtn.text() ))     
-        ''' phraseBtns is for individual words etc '''
-        #self.phraseBtns.clicked.connect(lambda: self.config.playSounds(phraseBtn.text() ))     
+        """ Add check in here to append to correct array - this is dirty and needs fixing """
+        if "I am" in phrases:
+            self.verbList.append(phrases)
+        else:
+            self.phraseList.append(phrases)
 
     def redisWipe(self):
         p = ''
         # call the keyDel function in the config class when the redisDelbtn is pressed
         """ A nice feature, would be to delete a given phrase..."""
         """ To do this, create a function which passes the phraseBtn name and remove from there """
-        self.btn_deleteConfig.clicked.connect(lambda: self.config.keyDel(self.btn_deletePhrases.text(), p))
+        self.btn_deleteConfig.clicked.connect(lambda: self.config.keyDel(self.btn_deleteConfig.text(), p))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,6 @@
+[-------------------------------------]
+This is a list of supported Operating Systems currently available
+
+Debian 8 
+Mac OS X - El Capitan
+Raspbian
