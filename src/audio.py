@@ -16,5 +16,5 @@ class Audio():
 
     # Implementation to play wave sound files for Debian Support (Linux)
     def playWave(self, sound):
-	for word in sound:
-	    subprocess.call(["aplay", "sounds/%s.wav" % word])
+	      for word in sound:
+	          subprocess.call(["aplay", "sounds/%s.wav" % word])

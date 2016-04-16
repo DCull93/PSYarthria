@@ -31,9 +31,6 @@ class Config():
 
   def phrases(self, text):
       """ Everytime this func gets called create the phrase and store in Redis with unique key """
-
-      """ Grab the user's phrases/words """
-      # This needs to grab the btn that is pressed, may be in wrong scope
       
       """ Grab init keys from bingInit() """
       self.bingInit()
@@ -66,11 +63,7 @@ class Config():
           except OSError:
               print "[*] Operating System no supported..."
       elif platform.uname()[1] == "debian":
-          """ Open wave file corresponding to the text input """
-          #waveSound = wave.open('sounds/%s.wav' % text, 'r')
-          """ Pass wave file format to playWave function for parsing """
-	 # print waveSound
-	  """ Format String """
+          """ Pass wav file format to playWave function for parsing """
           pS.playWave(text)
   
   def keyDel(self, redisDelBtn, p):
