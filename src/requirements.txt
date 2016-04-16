@@ -8,4 +8,6 @@ cmake -- This should already be on the system apt-get
 python-pyside - apt-get
 libqt4-dev - apt-get
 python-dev - apt-get
+redis-server - apt-get
+portaudio19-dev apt-get
 
