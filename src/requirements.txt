@@ -1,1 +1,11 @@
 BingTranslator
+python-pip
+enum
+requests
+redis -- Maybe this, never got mem support working
+PySide
+cmake -- This should already be on the system apt-get
+python-pyside - apt-get
+libqt4-dev - apt-get
+python-dev - apt-get
+

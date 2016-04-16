@@ -51,9 +51,9 @@ class Config():
               print "OS Not supported"
       elif platform.uname()[1] == "debian":
           try:
-              url = translator.speak_phrase(phrase_trans, self.lang, "audio/wave", "MaxQuality")
+              url = translator.speak_phrase(phrase_trans, self.lang, "audio/wav", "MaxQuality")
               """ Download and save audio file """
-              AudioSpeaked.download(url, "sounds/", "%s.wave" % text)
+              AudioSpeaked.download(url, "sounds/", "%s.wav" % text)
           except OSError:
               print "OS Not supported"
 
@@ -67,7 +67,7 @@ class Config():
               print "[*] Operating System no supported..."
       elif platform.uname()[1] == "debian":
           """ Open wave file corresponding to the text input """
-          waveSound = wave.open('sounds/%s.wave' % text, 'rb')
+          waveSound = wave.open('sounds/%s.wav' % text, 'rb')
           """ Pass wave file format to playWave function for parsing """
           pS.playWave(waveSound)
   
