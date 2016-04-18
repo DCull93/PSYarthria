@@ -38,6 +38,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Pron_She.setObjectName("btn_Pron_She")
         self.btn_Pron_She.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Pron_She.text() + " "))
+        self.btn_Pron_She.clicked.connect(lambda: self.staticBtnBing(self.btn_Pron_She.text() ))
 
         self.btn_Pron_I = QtGui.QPushButton(self.widget)
         self.btn_Pron_I.setGeometry(QtCore.QRect(0, 250, 71, 61))
@@ -46,6 +47,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);")
         self.btn_Pron_I.setObjectName("btn_Pron_I")
         self.btn_Pron_I.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Pron_I.text() + " "))
+        self.btn_Pron_I.clicked.connect(lambda: self.staticBtnBing(self.btn_Pron_I.text() ))
 
         self.btn_Pron_They = QtGui.QPushButton(self.widget)
         self.btn_Pron_They.setGeometry(QtCore.QRect(70, 250, 71, 61))
@@ -54,6 +56,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);")
         self.btn_Pron_They.setObjectName("btn_Pron_They")
         self.btn_Pron_They.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Pron_They.text() + " "))
+        self.btn_Pron_They.clicked.connect(lambda: self.staticBtnBing(self.btn_Pron_They.text() ))
 
         self.btn_Pron_Mine = QtGui.QPushButton(self.widget)
         self.btn_Pron_Mine.setGeometry(QtCore.QRect(140, 310, 71, 61))
@@ -62,6 +65,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Pron_Mine.setObjectName("btn_Pron_Mine")
         self.btn_Pron_Mine.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Pron_Mine.text() + " "))
+        self.btn_Pron_Mine.clicked.connect(lambda: self.staticBtnBing(self.btn_Pron_Mine.text() ))
 
         self.btn_Pron_People = QtGui.QPushButton(self.widget)
         self.btn_Pron_People.setGeometry(QtCore.QRect(70, 190, 71, 61))
@@ -70,6 +74,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);")
         self.btn_Pron_People.setObjectName("btn_Pron_People")
         self.btn_Pron_People.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Pron_People.text() + " "))
+        self.btn_Pron_People.clicked.connect(lambda: self.staticBtnBing(self.btn_Pron_People.text() ))
 
         self.btn_Pron_You = QtGui.QPushButton(self.widget)
         self.btn_Pron_You.setGeometry(QtCore.QRect(0, 190, 71, 61))
@@ -78,6 +83,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);")
         self.btn_Pron_You.setObjectName("btn_Pron_You")
         self.btn_Pron_You.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Pron_You.text() + " "))
+        self.btn_Pron_You.clicked.connect(lambda: self.staticBtnBing(self.btn_Pron_You.text() ))
 
         self.btn_Pron_We = QtGui.QPushButton(self.widget)
         self.btn_Pron_We.setGeometry(QtCore.QRect(140, 190, 71, 61))
@@ -86,6 +92,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);")
         self.btn_Pron_We.setObjectName("btn_Pron_We")
         self.btn_Pron_We.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Pron_We.text() + " "))
+        self.btn_Pron_We.clicked.connect(lambda: self.staticBtnBing(self.btn_Pron_We.text() ))
 
         self.btn_Pron_He = QtGui.QPushButton(self.widget)
         self.btn_Pron_He.setGeometry(QtCore.QRect(140, 250, 71, 61))
@@ -94,6 +101,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Pron_He.setObjectName("btn_Pron_Me")
         self.btn_Pron_He.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Pron_He.text() + " "))
+        self.btn_Pron_He.clicked.connect(lambda: self.staticBtnBing(self.btn_Pron_He.text() ))
 
         self.btn_Pron_It = QtGui.QPushButton(self.widget)
         self.btn_Pron_It.setGeometry(QtCore.QRect(0, 310, 71, 61))
@@ -102,6 +110,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Pron_It.setObjectName("btn_Pron_It")
         self.btn_Pron_It.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Pron_It.text() + " "))
+        self.btn_Pron_It.clicked.connect(lambda: self.staticBtnBing(self.btn_Pron_It.text() ))
 
         """>>>>>>>>>>Common Word or Phrase buttons<<<<<<<<<<"""
 
@@ -111,6 +120,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Cmn_No.setObjectName("btn_Cmn_No")
         self.btn_Cmn_No.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_No.text() + " "))
+        self.btn_Cmn_No.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_No.text() ))
 
         self.btn_Cmn_Time = QtGui.QPushButton(self.widget)
         self.btn_Cmn_Time.setGeometry(QtCore.QRect(0, 130, 71, 61))
@@ -118,7 +128,8 @@ class Ui_MainWindow(object):
 "background-color: rgb(255, 170, 0);")
         self.btn_Cmn_Time.setObjectName("btn_Cmn_Time")
         self.btn_Cmn_Time.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Time.text() + " "))
-
+        self.btn_Cmn_Time.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_Time.text() ))
+        
         self.btn_Cmn_Good = QtGui.QPushButton(self.widget)
         self.btn_Cmn_Good.setGeometry(QtCore.QRect(350, 70, 71, 61))
         self.btn_Cmn_Good.setStyleSheet("background-color: rgb(255, 170, 0);\n"
@@ -126,6 +137,7 @@ class Ui_MainWindow(object):
         self.btn_Cmn_Good.setText("Good")
         self.btn_Cmn_Good.setObjectName("btn_Cmn_Good")
         self.btn_Cmn_Good.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Good.text() + " "))
+        self.btn_Cmn_Good.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_Good.text() ))
 
         self.btn_Cmn_Bad = QtGui.QPushButton(self.widget)
         self.btn_Cmn_Bad.setGeometry(QtCore.QRect(350, 130, 71, 61))
@@ -133,6 +145,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Cmn_Bad.setObjectName("btn_Cmn_Bad")
         self.btn_Cmn_Bad.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Bad.text() + " "))
+        self.btn_Cmn_Bad.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_Bad.text() ))
 
         self.btn_Cmn_Yes = QtGui.QPushButton(self.widget)
         self.btn_Cmn_Yes.setGeometry(QtCore.QRect(140, 70, 71, 61))
@@ -140,6 +153,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Cmn_Yes.setObjectName("btn_Cmn_Yes")
         self.btn_Cmn_Yes.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Yes.text() + " "))
+        self.btn_Cmn_Yes.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_Yes.text() ))
 
         self.btn_Cmn_Hello = QtGui.QPushButton(self.widget)
         self.btn_Cmn_Hello.setGeometry(QtCore.QRect(0, 70, 71, 61))
@@ -147,6 +161,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(255, 170, 0);")
         self.btn_Cmn_Hello.setObjectName("btn_Cmn_Hello")
         self.btn_Cmn_Hello.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Hello.text() + " "))
+        self.btn_Cmn_Hello.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_Hello.text() ))
 
         self.btn_Cmn_Feeling = QtGui.QPushButton(self.widget)
         self.btn_Cmn_Feeling.setGeometry(QtCore.QRect(140, 130, 71, 61))
@@ -154,6 +169,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Cmn_Feeling.setObjectName("btn_Cmn_Feeling")
         self.btn_Cmn_Feeling.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Feeling.text() + " "))
+        self.btn_Cmn_Feeling.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_Feeling.text() ))
 
         self.btn_Cmn_IDK = QtGui.QPushButton(self.widget)
         self.btn_Cmn_IDK.setGeometry(QtCore.QRect(280, 130, 71, 61))
@@ -161,6 +177,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Cmn_IDK.setObjectName("btn_Cmn_IDK")
         self.btn_Cmn_IDK.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_IDK.text() + " "))
+        self.btn_Cmn_IDK.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_IDK.text() ))
 
         self.btn_Cmn_Goodbye = QtGui.QPushButton(self.widget)
         self.btn_Cmn_Goodbye.setGeometry(QtCore.QRect(70, 70, 71, 61))
@@ -168,6 +185,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(255, 170, 0);")
         self.btn_Cmn_Goodbye.setObjectName("btn_Cmn_Goodbye")
         self.btn_Cmn_Goodbye.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Goodbye.text() + " "))
+        self.btn_Cmn_Goodbye.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_Goodbye.text() ))
 
         self.btn_Cmn_Howareyou = QtGui.QPushButton(self.widget)
         self.btn_Cmn_Howareyou.setGeometry(QtCore.QRect(210, 130, 71, 61))
@@ -175,6 +193,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(255, 170, 0);")
         self.btn_Cmn_Howareyou.setObjectName("btn_Cmn_Howareyou")
         self.btn_Cmn_Howareyou.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Howareyou.text() + " "))
+        self.btn_Cmn_Howareyou.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_Howareyou.text() ))
 
         self.btn_Cmn_Hungry = QtGui.QPushButton(self.widget)
         self.btn_Cmn_Hungry.setGeometry(QtCore.QRect(70, 130, 71, 61))
@@ -182,6 +201,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(255, 170, 0);")
         self.btn_Cmn_Hungry.setObjectName("btn_Cmn_Hungry")
         self.btn_Cmn_Hungry.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Hungry.text() + " "))
+        self.btn_Cmn_Hungry.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_Hungry.text() ))
 
         self.btn_Cmn_And = QtGui.QPushButton(self.widget)
         self.btn_Cmn_And.setGeometry(QtCore.QRect(280, 70, 71, 61))
@@ -189,6 +209,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Cmn_And.setObjectName("btn_Cmn_And")
         self.btn_Cmn_And.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_And.text() + " "))
+        self.btn_Cmn_And.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_And.text() ))
 
         """>>>>>>>>>>Verb buttons<<<<<<<<<<"""
 
@@ -208,6 +229,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(85, 255, 127);")
         self.btn_Verb_Dislike.setObjectName("btn_Verb_Dislike")
         self.btn_Verb_Dislike.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Verb_Dislike.text() + " "))
+        self.btn_Verb_Dislike.clicked.connect(lambda: self.staticBtnBing(self.btn_Verb_Dislike.text() ))
 
         self.btn_Verb_Do = QtGui.QPushButton(self.widget)
         self.btn_Verb_Do.setGeometry(QtCore.QRect(210, 250, 71, 61))
@@ -222,6 +244,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(85, 255, 127);")
         self.btn_Verb_Like.setObjectName("btn_Verb_Like")
         self.btn_Verb_Like.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Verb_Like.text() + " "))
+        self.btn_Verb_Like.clicked.connect(lambda: self.staticBtnBing(self.btn_Verb_Like.text() ))
 
         self.btn_Verb_Eat = QtGui.QPushButton(self.widget)
         self.btn_Verb_Eat.setGeometry(QtCore.QRect(280, 310, 71, 61))
@@ -303,6 +326,7 @@ class Ui_MainWindow(object):
 "border: 1px solid black")
         self.btn_Cmn_Or.setObjectName("btn_Cmn_Or")
         self.btn_Cmn_Or.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Or.text() + " "))
+        self.btn_Cmn_Or.clicked.connect(lambda: self.staticBtnBing(self.btn_Cmn_Or.text() ))
 
         self.btn_Is = QtGui.QPushButton(self.widget)
         self.btn_Is.setGeometry(QtCore.QRect(210, 10, 71, 61))
@@ -357,6 +381,7 @@ class Ui_MainWindow(object):
         self.btn_Where.setObjectName("btn_Where")
         self.btn_Where.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Where.text() + " "))
         self.btn_Where.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_2))
+        self.btn_Where.clicked.connect(lambda: self.staticBtnBing(self.btn_Where.text() ))
 
         self.btn_When = QtGui.QPushButton(self.widget_2)
         self.btn_When.setGeometry(QtCore.QRect(190, 140, 71, 61))
@@ -367,6 +392,7 @@ class Ui_MainWindow(object):
         self.btn_When.setObjectName("btn_When")
         self.btn_When.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_When.text() + " "))
         self.btn_When.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_2))
+        self.btn_When.clicked.connect(lambda: self.staticBtnBing(self.btn_When.text() ))
 
         self.btn_What = QtGui.QPushButton(self.widget_2)
         self.btn_What.setGeometry(QtCore.QRect(50, 80, 71, 61))
@@ -377,6 +403,7 @@ class Ui_MainWindow(object):
         self.btn_What.setObjectName("btn_What")
         self.btn_What.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_What.text() + " "))
         self.btn_What.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_2))
+        self.btn_What.clicked.connect(lambda: self.staticBtnBing(self.btn_What.text() ))
 
         self.btn_How = QtGui.QPushButton(self.widget_2)
         self.btn_How.setGeometry(QtCore.QRect(120, 140, 71, 61))
@@ -387,6 +414,7 @@ class Ui_MainWindow(object):
         self.btn_How.setObjectName("btn_Translation_6")
         self.btn_How.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_How.text() + " "))
         self.btn_How.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_2))
+        self.btn_How.clicked.connect(lambda: self.staticBtnBing(self.btn_How.text() ))
 
         self.btn_Which = QtGui.QPushButton(self.widget_2)
         self.btn_Which.setGeometry(QtCore.QRect(50, 140, 71, 61))
@@ -397,6 +425,7 @@ class Ui_MainWindow(object):
         self.btn_Which.setObjectName("btn_Which")
         self.btn_Which.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Which.text() + " "))
         self.btn_Which.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_2))
+        self.btn_Which.clicked.connect(lambda: self.staticBtnBing(self.btn_Which.text() ))
 
         self.btn_Who = QtGui.QPushButton(self.widget_2)
         self.btn_Who.setGeometry(QtCore.QRect(190, 80, 71, 61))
@@ -407,6 +436,7 @@ class Ui_MainWindow(object):
         self.btn_Who.setObjectName("btn_Who")
         self.btn_Who.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Who.text() + " "))
         self.btn_Who.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_2))
+        self.btn_Who.clicked.connect(lambda: self.staticBtnBing(self.btn_Who.text() ))
 
         """xxxxxxxxxx Object name: widget_3 Des: state of being i.e. is/am/are/will/were xxxxxxxxxxxxxxxxxxxxxxxx"""
 
@@ -422,6 +452,7 @@ class Ui_MainWindow(object):
         self.btn_is.setObjectName("btn_is")
         self.btn_is.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_is.text() + " "))
         self.btn_is.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_is.clicked.connect(lambda: self.staticBtnBing(self.btn_is.text() ))
 
         """ Is not button """
         self.btn_is_not = QtGui.QPushButton(self.widget_3)
@@ -430,6 +461,7 @@ class Ui_MainWindow(object):
         self.btn_is_not.setObjectName("btn_is_not")
         self.btn_is_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_is_not.text() + " "))
         self.btn_is_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_is_not.clicked.connect(lambda: self.staticBtnBing(self.btn_is_not.text() ))
 
         """ Am button """
         self.btn_am = QtGui.QPushButton(self.widget_3)
@@ -438,6 +470,7 @@ class Ui_MainWindow(object):
         self.btn_am.setObjectName("btn_am")
         self.btn_am.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_am.text() + " "))
         self.btn_am.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_am.clicked.connect(lambda: self.staticBtnBing(self.btn_am.text() ))
 
         """ Am not button """
         self.btn_am_not = QtGui.QPushButton(self.widget_3)
@@ -446,6 +479,7 @@ class Ui_MainWindow(object):
         self.btn_am_not.setObjectName("btn_am")
         self.btn_am_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_am_not.text() + " "))
         self.btn_am_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_am_not.clicked.connect(lambda: self.staticBtnBing(self.btn_am_not.text() ))
 
         """ Are button """
         self.btn_are = QtGui.QPushButton(self.widget_3)
@@ -454,6 +488,7 @@ class Ui_MainWindow(object):
         self.btn_are.setObjectName("btn_am")
         self.btn_are.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_are.text() + " "))
         self.btn_are.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_are.clicked.connect(lambda: self.staticBtnBing(self.btn_are.text() ))
 
         """ Are not button """
         self.btn_are_not = QtGui.QPushButton(self.widget_3)
@@ -462,6 +497,7 @@ class Ui_MainWindow(object):
         self.btn_are_not.setObjectName("btn_am")
         self.btn_are_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_are_not.text() + " "))
         self.btn_are_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_are_not.clicked.connect(lambda: self.staticBtnBing(self.btn_are_not.text() ))
 
         """ Was button """
         self.btn_was = QtGui.QPushButton(self.widget_3)
@@ -470,6 +506,7 @@ class Ui_MainWindow(object):
         self.btn_was.setObjectName("btn_am")
         self.btn_was.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_was.text() + " "))
         self.btn_was.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_was.clicked.connect(lambda: self.staticBtnBing(self.btn_was.text() ))
 
         """ Was not button """
         self.btn_was_not = QtGui.QPushButton(self.widget_3)
@@ -478,6 +515,7 @@ class Ui_MainWindow(object):
         self.btn_was_not.setObjectName("btn_am")
         self.btn_was_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_was_not.text() + " "))
         self.btn_was_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_was_not.clicked.connect(lambda: self.staticBtnBing(self.btn_was_not.text() ))
 
         """ Were button """
         self.btn_were = QtGui.QPushButton(self.widget_3)
@@ -486,6 +524,7 @@ class Ui_MainWindow(object):
         self.btn_were.setObjectName("btn_am")
         self.btn_were.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_were.text() + " "))
         self.btn_were.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_were.clicked.connect(lambda: self.staticBtnBing(self.btn_were.text() ))
 
 
         """ Were not button """
@@ -495,6 +534,7 @@ class Ui_MainWindow(object):
         self.btn_were_not.setObjectName("btn_am")
         self.btn_were_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_were_not.text() + " "))
         self.btn_were_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_were_not.clicked.connect(lambda: self.staticBtnBing(self.btn_were_not.text() ))
 
         """ Will button """
         self.btn_will = QtGui.QPushButton(self.widget_3)
@@ -503,6 +543,7 @@ class Ui_MainWindow(object):
         self.btn_will.setObjectName("btn_am")
         self.btn_will.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_will.text() + " "))
         self.btn_will.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_will.clicked.connect(lambda: self.staticBtnBing(self.btn_will.text() ))
 
         """ Will not button """
         self.btn_will_not = QtGui.QPushButton(self.widget_3)
@@ -511,6 +552,7 @@ class Ui_MainWindow(object):
         self.btn_will_not.setObjectName("btn_am")
         self.btn_will_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_will_not.text() + " "))
         self.btn_will_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
+        self.btn_will_not.clicked.connect(lambda: self.staticBtnBing(self.btn_will_not.text() ))
 
         """>>>>>>>>>> Object name: widget_4 --- description: Phrases widget <<<<<<<<<<"""
 
