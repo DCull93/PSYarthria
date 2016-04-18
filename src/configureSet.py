@@ -31,7 +31,7 @@ class Config():
 
   def phrases(self, text):
       """ Everytime this func gets called create the phrase and store in Redis with unique key """
-      
+
       """ Grab init keys from bingInit() """
       self.bingInit()
       """ Create translator object with creds """
@@ -54,22 +54,22 @@ class Config():
           except OSError:
               print "OS Not supported"
 
-  def playSounds(self, text):
+  def playSounds(self, text, staticText):
       """ Create Audio Instance """
       pS = Audio()
       if platform.system() == "Darwin":
           try:
-              pS.playMp3(text)
+              pS.playMp3(text, staticText)
           except OSError:
               print "[*] Operating System no supported..."
       elif platform.uname()[1] == "debian":
           """ Pass wav file format to playWave function for parsing """
-          pS.playWave(text)
-  
+          pS.playWave(text, staticText)
+
   def keyDel(self, redisDelBtn, p):
 
       if "Delete Configuration" in redisDelBtn:
-          print "[*] Deleting Phrases and MP3s..." 
+          print "[*] Deleting Phrases and MP3s..."
           """ Remove the phrase buttons """
           for filename in glob.glob('sounds/*.mp3'):
               os.remove(filename)

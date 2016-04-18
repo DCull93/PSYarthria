@@ -9,7 +9,7 @@ class Ui_MainWindow(object):
         """ Initialise instances and structures """
         self.config = Config()
         self.phraseList = []
-        self.verbList = []
+        self.staticList = []
 
     def setupUi(self, MainWindow):
         """ Sets main window and central widget up """
@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
         self.btn_Language.setStyleSheet("border: 1px solid black")
         self.btn_Language.setObjectName("btn_Language")
 
-                """ >>>>>Duncan's Gui Code<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< """
+        """ >>>>>Duncan's Gui Code<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< """
 
         """ >>>>>>>>>>Pronoun buttons<<<<<<<<<<< """
 
@@ -264,7 +264,7 @@ class Ui_MainWindow(object):
         self.btn_Pointers = QtGui.QPushButton(self.widget)
         self.btn_Pointers.setGeometry(QtCore.QRect(420, 250, 71, 61))
         self.btn_Pointers.setStyleSheet("background-color: rgb(255, 255, 127);\n"
-"border: 1px solid black")        
+"border: 1px solid black")
         self.btn_Pointers.setObjectName("btn_Pointers")
         self.btn_Pointers.clicked.connect(lambda: self.func(self.widget, self.pointers_widget))
 
@@ -632,7 +632,7 @@ class Ui_MainWindow(object):
         self.btn_b2m_do.setStyleSheet("border: 1px solid black")
         self.btn_b2m_do.setObjectName("btn_b2m_do")
         self.btn_b2m_do.setText("Return")
-        self.btn_b2m_do.clicked.connect(lambda: self.funcReverse(self.widget, self.do_widget))  
+        self.btn_b2m_do.clicked.connect(lambda: self.funcReverse(self.widget, self.do_widget))
 
         """>>>>>>>>>> Object name: go_Widget Description: go conjugations <<<<<<<<<<"""
 
@@ -688,7 +688,7 @@ class Ui_MainWindow(object):
         self.btn_b2m_go.setStyleSheet("border: 1px solid black")
         self.btn_b2m_go.setObjectName("btn_b2m_go")
         self.btn_b2m_go.setText("Return")
-        self.btn_b2m_go.clicked.connect(lambda: self.funcReverse(self.widget, self.go_widget))  
+        self.btn_b2m_go.clicked.connect(lambda: self.funcReverse(self.widget, self.go_widget))
 
         """>>>>>>>>>> Object name: come_Widget Description: come conjugations<<<<<<<<<<"""
 
@@ -723,7 +723,7 @@ class Ui_MainWindow(object):
         self.btn_b2m_come.setStyleSheet("border: 1px solid black")
         self.btn_b2m_come.setObjectName("btn_b2m_come")
         self.btn_b2m_come.setText("Return")
-        self.btn_b2m_come.clicked.connect(lambda: self.funcReverse(self.widget, self.come_widget)) 
+        self.btn_b2m_come.clicked.connect(lambda: self.funcReverse(self.widget, self.come_widget))
 
         """>>>>>>>>>> Object name: want_Widget Description: want conjugations<<<<<<<<<<"""
 
@@ -877,7 +877,8 @@ class Ui_MainWindow(object):
         self.btn_football.setStyleSheet("border: 1px solid black")
         self.btn_football.setObjectName("btn_football")
         self.btn_football.setText("football ")
-        self.btn_football.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_football.text()))
+        self.btn_football.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_football.text()) )
+        self.btn_football.clicked.connect(lambda: self.staticBtnBing(self.btn_football.text() ))
 
         self.btn_to_play  = QtGui.QPushButton(self.sports_Group)
         self.btn_to_play.setGeometry(QtCore.QRect(70, 10, 71, 61))
@@ -1142,9 +1143,9 @@ class Ui_MainWindow(object):
         self.btn_deleteConfig.clicked.connect(lambda: self.redisWipe())
 
         """ Pass array into speak parser """
-        self.btn_Speak.clicked.connect(lambda: self.config.playSounds(self.phraseList) )
+        self.btn_Speak.clicked.connect(lambda: self.config.playSounds(self.phraseList, self.staticList) )
 
-self.btn_Pron_She.setText(QtGui.QApplication.translate("MainWindow", "She", None, QtGui.QApplication.UnicodeUTF8))
+        self.btn_Pron_She.setText(QtGui.QApplication.translate("MainWindow", "She", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Cmn_No.setText(QtGui.QApplication.translate("MainWindow", "No", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Prep.setText(QtGui.QApplication.translate("MainWindow", "Prepositions", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Clear.setText(QtGui.QApplication.translate("MainWindow", "Clear", None, QtGui.QApplication.UnicodeUTF8))
@@ -1201,14 +1202,19 @@ self.btn_Pron_She.setText(QtGui.QApplication.translate("MainWindow", "She", None
         self.btn_is_not.setText(QtGui.QApplication.translate("MainWindow", "is not", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_am.setText(QtGui.QApplication.translate("MainWindow", "am", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_am_not.setText(QtGui.QApplication.translate("MainWindow", "am not", None, QtGui.QApplication.UnicodeUTF8))
-        self.btn_are.setText(QtGui.QApplication.translate("MainWindow", "are", None, QtGui.QApplication.UnicodeUTF8))  
+        self.btn_are.setText(QtGui.QApplication.translate("MainWindow", "are", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_are_not.setText(QtGui.QApplication.translate("MainWindow", "are not", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_will.setText(QtGui.QApplication.translate("MainWindow", "will", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_will_not.setText(QtGui.QApplication.translate("MainWindow", "will not", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_was.setText(QtGui.QApplication.translate("MainWindow", "was", None, QtGui.QApplication.UnicodeUTF8))
-        self.btn_was_not.setText(QtGui.QApplication.translate("MainWindow", "was not", None, QtGui.QApplication.UnicodeUTF8))  
+        self.btn_was_not.setText(QtGui.QApplication.translate("MainWindow", "was not", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_were.setText(QtGui.QApplication.translate("MainWindow", "were", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_were_not.setText(QtGui.QApplication.translate("MainWindow", "were not", None, QtGui.QApplication.UnicodeUTF8))
+
+    """ Pass static button text to parse into BingTranslator """
+    def staticBtnBing(self, staticBtn):
+        self.staticList.append(staticBtn)
+        self.config.phrases(staticBtn)
 
         """ Open question Widget and close question widget """
     def func(self, widget, widget2):
@@ -1224,6 +1230,7 @@ self.btn_Pron_She.setText(QtGui.QApplication.translate("MainWindow", "She", None
         self.SentenceBuilder.cursorWordBackward(True)
         self.SentenceBuilder.del_()
         self.phraseList.pop()
+        self.staticList.pop()
 
     def chooseLang(self):
         self.langText, ok = QtGui.QInputDialog.getText(self.widget, 'Input Dialog', 'Choose Language: ')
@@ -1269,15 +1276,14 @@ self.btn_Pron_She.setText(QtGui.QApplication.translate("MainWindow", "She", None
             """ Needs fixing """
             if baseX <= 420:
                 baseX += 70
-                baseY += 0
+                baseY = 0
 
             if baseY <= 420:
-                baseX += 0
                 baseY += 60
+                baseX = 0
 
             if baseX == 420 and baseY == 310:
                 "Print, too many phrases, create new widget"
-
 
     def verbPhrases(self, text):
         """ Call phrases and download translation of given text """
