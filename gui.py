@@ -3,6 +3,7 @@ from configureSet import *
 from updater import *
 from PySide import QtCore, QtGui
 
+
 class Ui_MainWindow(object):
 
     def __init__(self):
@@ -47,6 +48,8 @@ class Ui_MainWindow(object):
         self.btn_Language.setGeometry(QtCore.QRect(0, 10, 71, 61))
         self.btn_Language.setStyleSheet("border: 1px solid black")
         self.btn_Language.setObjectName("btn_Language")
+
+
 
         """ >>>>>Duncan's Gui Code<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< """
 
@@ -213,21 +216,7 @@ class Ui_MainWindow(object):
 
         """>>>>>>>>>>Verb buttons<<<<<<<<<<"""
 
-        self.btn_Verb_Look = QtGui.QPushButton(self.widget)
-        self.btn_Verb_Look.setGeometry(QtCore.QRect(210, 190, 71, 61))
-        self.btn_Verb_Look.setStyleSheet("border: 1px solid black;\n"
-"background-color: rgb(85, 255, 127);")
-        self.btn_Verb_Look.setObjectName("btn_Verb_Look")
-        self.btn_Verb_Look.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Verb_Look.text() + " "))
-        #self.btn_Verb_Do.clicked.connect(lambda: self.doWidgetOpen(self.widget, self.do_widget))
 
-        self.btn_Verb_Hear = QtGui.QPushButton(self.widget)
-        self.btn_Verb_Hear.setGeometry(QtCore.QRect(280, 190, 71, 61))
-        self.btn_Verb_Hear.setStyleSheet("border: 1px solid black;\n"
-"background-color: rgb(85, 255, 127);")
-        self.btn_Verb_Hear.setObjectName("btn_Verb_Hear")
-        self.btn_Verb_Hear.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Verb_Hear.text() + " "))
-        #self.btn_Verb_Do.clicked.connect(lambda: self.doWidgetOpen(self.widget, self.do_widget))
 
         self.btn_Verb_Go = QtGui.QPushButton(self.widget)
         self.btn_Verb_Go.setGeometry(QtCore.QRect(280, 250, 71, 61))
@@ -235,7 +224,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(85, 255, 127);")
         self.btn_Verb_Go.setObjectName("btn_Verb_Go")
         self.btn_Verb_Go.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Verb_Go.text() + " "))
-        self.btn_Verb_Go.clicked.connect(lambda: self.goWidgetOpen(self.widget, self.go_widget))
+        self.btn_Verb_Go.clicked.connect(lambda: self.func(self.widget, self.go_widget))
 
         self.btn_Verb_Dislike = QtGui.QPushButton(self.widget)
         self.btn_Verb_Dislike.setGeometry(QtCore.QRect(350, 250, 71, 61))
@@ -243,14 +232,13 @@ class Ui_MainWindow(object):
 "background-color: rgb(85, 255, 127);")
         self.btn_Verb_Dislike.setObjectName("btn_Verb_Dislike")
         self.btn_Verb_Dislike.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Verb_Dislike.text() + " "))
-        #self.btn_Verb_Do.clicked.connect(lambda: self.doWidgetOpen(self.widget, self.do_widget))
 
         self.btn_Verb_Do = QtGui.QPushButton(self.widget)
         self.btn_Verb_Do.setGeometry(QtCore.QRect(210, 250, 71, 61))
         self.btn_Verb_Do.setStyleSheet("border: 1px solid black;\n"
 "background-color: rgb(85, 255, 127);")
         self.btn_Verb_Do.setObjectName("btn_Verb_Do")
-        self.btn_Verb_Do.clicked.connect(lambda: self.doWidgetOpen(self.widget, self.do_widget))
+        self.btn_Verb_Do.clicked.connect(lambda: self.func(self.widget, self.do_widget))
 
         self.btn_Verb_Like = QtGui.QPushButton(self.widget)
         self.btn_Verb_Like.setGeometry(QtCore.QRect(350, 190, 71, 61))
@@ -258,46 +246,58 @@ class Ui_MainWindow(object):
 "background-color: rgb(85, 255, 127);")
         self.btn_Verb_Like.setObjectName("btn_Verb_Like")
         self.btn_Verb_Like.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Verb_Like.text() + " "))
-        #self.btn_Verb_Do.clicked.connect(lambda: self.doWidgetOpen(self.widget, self.do_widget))
 
         self.btn_Verb_Eat = QtGui.QPushButton(self.widget)
         self.btn_Verb_Eat.setGeometry(QtCore.QRect(280, 310, 71, 61))
         self.btn_Verb_Eat.setStyleSheet("border: 1px solid black;\n"
 "background-color: rgb(85, 255, 127);")
         self.btn_Verb_Eat.setObjectName("btn_Verb_Eat")
-        self.btn_Verb_Eat.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Verb_Eat.text() + " "))
-        #self.btn_Verb_Do.clicked.connect(lambda: self.doWidgetOpen(self.widget, self.do_widget))
-
-        self.btn_Verb_Wear = QtGui.QPushButton(self.widget)
-        self.btn_Verb_Wear.setGeometry(QtCore.QRect(420, 250, 71, 61))
-        self.btn_Verb_Wear.setStyleSheet("border: 1px solid black;\n"
-"background-color: rgb(85, 255, 127);")
-        self.btn_Verb_Wear.setObjectName("btn_Verb_Wear")
-        self.btn_Verb_Wear.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Verb_Wear.text() + " "))
-        #self.btn_Verb_Do.clicked.connect(lambda: self.doWidgetOpen(self.widget, self.do_widget))
+        self.btn_Verb_Eat.clicked.connect(lambda: self.func(self.widget, self.eat_widget))
 
         self.btn_Verb_Come = QtGui.QPushButton(self.widget)
         self.btn_Verb_Come.setGeometry(QtCore.QRect(420, 190, 71, 61))
         self.btn_Verb_Come.setStyleSheet("border: 1px solid black;\n"
 "background-color: rgb(85, 255, 127);")
         self.btn_Verb_Come.setObjectName("btn_Verb_Come")
-        self.btn_Verb_Come.clicked.connect(lambda: self.comeWidgetOpen(self.widget, self.come_widget))
+        self.btn_Verb_Come.clicked.connect(lambda: self.func(self.widget, self.come_widget))
 
         self.btn_Verb_Drink = QtGui.QPushButton(self.widget)
         self.btn_Verb_Drink.setGeometry(QtCore.QRect(350, 310, 71, 61))
         self.btn_Verb_Drink.setStyleSheet("border: 1px solid black;\n"
 "background-color: rgb(85, 255, 127);")
         self.btn_Verb_Drink.setObjectName("btn_Verb_Drink")
-        self.btn_Verb_Drink.clicked.connect(lambda: self.drinkWidgetOpen(self.widget, self.drink_widget))
+        self.btn_Verb_Drink.clicked.connect(lambda: self.func(self.widget, self.drink_widget))
 
         self.btn_Verb_Want = QtGui.QPushButton(self.widget)
         self.btn_Verb_Want.setGeometry(QtCore.QRect(210, 310, 71, 61))
         self.btn_Verb_Want.setStyleSheet("border: 1px solid black;\n"
 "background-color: rgb(85, 255, 127);")
         self.btn_Verb_Want.setObjectName("btn_Verb_Want")
-        self.btn_Verb_Want.clicked.connect(lambda: self.wantWidgetOpen(self.widget, self.want_widget))
+        self.btn_Verb_Want.clicked.connect(lambda: self.func(self.widget, self.want_widget))
 
-        """>>>>>>>>>>Misc buttons<<<<<<<<<<"""
+        """>>>>>>>>>>Other buttons<<<<<<<<<<"""
+
+        self.btn_Food = QtGui.QPushButton(self.widget)
+        self.btn_Food.setGeometry(QtCore.QRect(280, 190, 71, 61))
+        self.btn_Food.setStyleSheet("border: 1px solid black;\n"
+"background-color: rgb(208, 0, 0);\n"
+"color: rgb(255, 255, 255);")
+        self.btn_Food.setObjectName("btn_Food")
+        self.btn_Food.clicked.connect(lambda: self.func(self.widget, self.food_widget))
+
+        self.btn_Pointers = QtGui.QPushButton(self.widget)
+        self.btn_Pointers.setGeometry(QtCore.QRect(420, 250, 71, 61))
+        self.btn_Pointers.setStyleSheet("background-color: rgb(255, 255, 127);\n"
+"border: 1px solid black")        
+        self.btn_Pointers.setObjectName("btn_Pointers")
+        self.btn_Pointers.clicked.connect(lambda: self.func(self.widget, self.pointers_widget))
+
+        self.btn_Prep = QtGui.QPushButton(self.widget)
+        self.btn_Prep.setGeometry(QtCore.QRect(210, 190, 71, 61))
+        self.btn_Prep.setStyleSheet("background-color: rgb(255, 255, 127);\n"
+"border: 1px solid black")
+        self.btn_Prep.setObjectName("btn_Prep")
+        self.btn_Prep.clicked.connect(lambda: self.func(self.widget, self.prep_widget))
 
         self.btn_Clear = QtGui.QPushButton(self.widget)
         self.btn_Clear.setGeometry(QtCore.QRect(420, 310, 71, 61))
@@ -306,31 +306,33 @@ class Ui_MainWindow(object):
         self.btn_Clear.setObjectName("btn_Clear")
         self.btn_Clear.clicked.connect(lambda: self.SentenceBuilder.setText(""))
 
-        self.btn_Nouns = QtGui.QPushButton(self.widget)
-        self.btn_Nouns.setGeometry(QtCore.QRect(280, 10, 71, 61))
-        self.btn_Nouns.setStyleSheet("border: 1px solid black;\n"
+        self.btn_Sports = QtGui.QPushButton(self.widget)
+        self.btn_Sports.setGeometry(QtCore.QRect(280, 10, 71, 61))
+        self.btn_Sports.setStyleSheet("border: 1px solid black;\n"
 "background-color: rgb(208, 0, 0);\n"
 "color: rgb(255, 255, 255);")
-        self.btn_Nouns.setObjectName("btn_Nouns")
+        self.btn_Sports.setObjectName("btn_Sports")
+        self.btn_Sports.clicked.connect(lambda: self.func(self.widget, self.sports_Group))
 
-        self.btn_punctuation = QtGui.QPushButton(self.widget)
-        self.btn_punctuation.setGeometry(QtCore.QRect(420, 70, 71, 61))
-        self.btn_punctuation.setStyleSheet("background-color: rgb(255, 255, 127);\n"
+        self.btn_Articles = QtGui.QPushButton(self.widget)
+        self.btn_Articles.setGeometry(QtCore.QRect(420, 70, 71, 61))
+        self.btn_Articles.setStyleSheet("background-color: rgb(255, 255, 127);\n"
 "border: 1px solid black")
-        self.btn_punctuation.setObjectName("btn_punctuation")
-        self.btn_punctuation.clicked.connect(lambda: self.punctWidgetOpen(self.widget, self.widget_5))
+        self.btn_Articles.setObjectName("btn_Articles")
+        self.btn_Articles.clicked.connect(lambda: self.func(self.widget, self.widget_5))
 
-        self.btn_Translation = QtGui.QPushButton(self.widget)
-        self.btn_Translation.setGeometry(QtCore.QRect(70, 10, 71, 61))
-        self.btn_Translation.setStyleSheet("border: 1px solid black;\n"
-"selection-color: rgb(255, 255, 0);")
-        self.btn_Translation.setObjectName("btn_Translation")
+        self.btn_Cmn_Or = QtGui.QPushButton(self.widget)
+        self.btn_Cmn_Or.setGeometry(QtCore.QRect(70, 10, 71, 61))
+        self.btn_Cmn_Or.setStyleSheet("background-color: rgb(255, 170, 0);\n"
+"border: 1px solid black")
+        self.btn_Cmn_Or.setObjectName("btn_Cmn_Or")
+        self.btn_Cmn_Or.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_Cmn_Or.text() + " "))
 
         self.btn_Is = QtGui.QPushButton(self.widget)
         self.btn_Is.setGeometry(QtCore.QRect(210, 10, 71, 61))
         self.btn_Is.setStyleSheet("border: 1px solid black")
         self.btn_Is.setObjectName("btn_Is")
-        self.btn_Is.clicked.connect(lambda: self.isWidgetfunc(self.widget, self.widget_3))
+        self.btn_Is.clicked.connect(lambda: self.func(self.widget, self.widget_3))
 
         self.btn_Questions = QtGui.QPushButton(self.widget)
         self.btn_Questions.setGeometry(QtCore.QRect(140, 10, 71, 61))
@@ -340,22 +342,27 @@ class Ui_MainWindow(object):
         self.btn_Questions.setObjectName("btn_Questions")
         self.btn_Questions.clicked.connect(lambda: self.func(self.widget, self.widget_2))
 
-        self.btn_Menu = QtGui.QPushButton(self.widget)
-        self.btn_Menu.setGeometry(QtCore.QRect(420, 10, 71, 61))
-        self.btn_Menu.setStyleSheet("border: 1px solid black")
-        self.btn_Menu.setObjectName("btn_Menu")
+        self.btn_School = QtGui.QPushButton(self.widget)
+        self.btn_School.setGeometry(QtCore.QRect(420, 10, 71, 61))
+        self.btn_School.setStyleSheet("border: 1px solid black;\n"
+"background-color: rgb(208, 0, 0);\n"
+"color: rgb(255, 255, 255);")
+        self.btn_School.setObjectName("btn_School")
+        self.btn_School.clicked.connect(lambda: self.func(self.widget, self.school_Group))
 
-        self.btn_Cmn_Sizes = QtGui.QPushButton(self.widget)
-        self.btn_Cmn_Sizes.setGeometry(QtCore.QRect(420, 130, 71, 61))
-        self.btn_Cmn_Sizes.setStyleSheet("background-color: rgb(255, 255, 127);\n"
-"border: 1px solid black")
-        self.btn_Cmn_Sizes.setObjectName("btn_Cmn_Sizes")
+        self.btn_Cmn_Home = QtGui.QPushButton(self.widget)
+        self.btn_Cmn_Home.setGeometry(QtCore.QRect(420, 130, 71, 61))
+        self.btn_Cmn_Home.setStyleSheet("border: 1px solid black;\n"
+"background-color: rgb(208, 0, 0);\n"
+"color: rgb(255, 255, 255);")
+        self.btn_Cmn_Home.setObjectName("btn_Cmn_Home")
+        self.btn_Cmn_Home.clicked.connect(lambda: self.func(self.widget, self.home_Group))
 
         self.btn_Phrases = QtGui.QPushButton(self.widget)
         self.btn_Phrases.setGeometry(QtCore.QRect(350, 10, 71, 61))
         self.btn_Phrases.setStyleSheet("border: 1px solid black")
         self.btn_Phrases.setObjectName("btn_Phrases")
-        self.btn_Phrases.clicked.connect(lambda: self.phrasesWidgetOpen(self.widget, self.widget_4))
+        self.btn_Phrases.clicked.connect(lambda: self.func(self.widget, self.widget_4))
 
         """ xxxxxxxxxx Object name: widget_2 des: Questions xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"""
 
@@ -438,7 +445,7 @@ class Ui_MainWindow(object):
         self.btn_is.setStyleSheet("border: 1px solid black")
         self.btn_is.setObjectName("btn_is")
         self.btn_is.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_is.text() + " "))
-        self.btn_is.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_is.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """ Is not button """
         self.btn_is_not = QtGui.QPushButton(self.widget_3)
@@ -446,7 +453,7 @@ class Ui_MainWindow(object):
         self.btn_is_not.setStyleSheet("border: 1px solid black")
         self.btn_is_not.setObjectName("btn_is_not")
         self.btn_is_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_is_not.text() + " "))
-        self.btn_is_not.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_is_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """ Am button """
         self.btn_am = QtGui.QPushButton(self.widget_3)
@@ -454,7 +461,7 @@ class Ui_MainWindow(object):
         self.btn_am.setStyleSheet("border: 1px solid black")
         self.btn_am.setObjectName("btn_am")
         self.btn_am.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_am.text() + " "))
-        self.btn_am.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_am.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """ Am not button """
         self.btn_am_not = QtGui.QPushButton(self.widget_3)
@@ -462,7 +469,7 @@ class Ui_MainWindow(object):
         self.btn_am_not.setStyleSheet("border: 1px solid black")
         self.btn_am_not.setObjectName("btn_am")
         self.btn_am_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_am_not.text() + " "))
-        self.btn_am_not.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_am_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """ Are button """
         self.btn_are = QtGui.QPushButton(self.widget_3)
@@ -470,7 +477,7 @@ class Ui_MainWindow(object):
         self.btn_are.setStyleSheet("border: 1px solid black")
         self.btn_are.setObjectName("btn_am")
         self.btn_are.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_are.text() + " "))
-        self.btn_are.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_are.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """ Are not button """
         self.btn_are_not = QtGui.QPushButton(self.widget_3)
@@ -478,7 +485,7 @@ class Ui_MainWindow(object):
         self.btn_are_not.setStyleSheet("border: 1px solid black")
         self.btn_are_not.setObjectName("btn_am")
         self.btn_are_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_are_not.text() + " "))
-        self.btn_are_not.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_are_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """ Was button """
         self.btn_was = QtGui.QPushButton(self.widget_3)
@@ -486,7 +493,7 @@ class Ui_MainWindow(object):
         self.btn_was.setStyleSheet("border: 1px solid black")
         self.btn_was.setObjectName("btn_am")
         self.btn_was.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_was.text() + " "))
-        self.btn_was.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_was.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """ Was not button """
         self.btn_was_not = QtGui.QPushButton(self.widget_3)
@@ -494,7 +501,7 @@ class Ui_MainWindow(object):
         self.btn_was_not.setStyleSheet("border: 1px solid black")
         self.btn_was_not.setObjectName("btn_am")
         self.btn_was_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_was_not.text() + " "))
-        self.btn_was_not.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_was_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """ Were button """
         self.btn_were = QtGui.QPushButton(self.widget_3)
@@ -502,7 +509,7 @@ class Ui_MainWindow(object):
         self.btn_were.setStyleSheet("border: 1px solid black")
         self.btn_were.setObjectName("btn_am")
         self.btn_were.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_were.text() + " "))
-        self.btn_were.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_were.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
 
         """ Were not button """
@@ -511,7 +518,7 @@ class Ui_MainWindow(object):
         self.btn_were_not.setStyleSheet("border: 1px solid black")
         self.btn_were_not.setObjectName("btn_am")
         self.btn_were_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_were_not.text() + " "))
-        self.btn_were_not.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_were_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """ Will button """
         self.btn_will = QtGui.QPushButton(self.widget_3)
@@ -519,7 +526,7 @@ class Ui_MainWindow(object):
         self.btn_will.setStyleSheet("border: 1px solid black")
         self.btn_will.setObjectName("btn_am")
         self.btn_will.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_will.text() + " "))
-        self.btn_will.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_will.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """ Will not button """
         self.btn_will_not = QtGui.QPushButton(self.widget_3)
@@ -527,7 +534,7 @@ class Ui_MainWindow(object):
         self.btn_will_not.setStyleSheet("border: 1px solid black")
         self.btn_will_not.setObjectName("btn_am")
         self.btn_will_not.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_will_not.text() + " "))
-        self.btn_will_not.clicked.connect(lambda: self.isWidgetReverse(self.widget, self.widget_3))
+        self.btn_will_not.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_3))
 
         """>>>>>>>>>> Object name: widget_4 --- description: Phrases widget <<<<<<<<<<"""
 
@@ -551,42 +558,63 @@ class Ui_MainWindow(object):
         self.btn_b2m_phrase.setStyleSheet("border: 1px solid black")
         self.btn_b2m_phrase.setObjectName("btn_b2m_phrase")
         self.btn_b2m_phrase.setText("Return")
-        self.btn_b2m_phrase.clicked.connect(lambda: self.phrasesWidgetClose(self.widget, self.widget_4))
+        self.btn_b2m_phrase.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_4))
 
-        """>>>>>>>>>>>> Object name: widget_5 Description: Punctuation widget <<<<<<<<<<"""
+        """>>>>>>>>>>>> Object name: widget_5 Description: article widget <<<<<<<<<<"""
 
         self.widget_5 = QtGui.QWidget(self.centralwidget)
         self.widget_5.setGeometry(QtCore.QRect(0, 50, 491, 371))
         self.widget_5.setObjectName("widget_5")
         self.widget_5.hide()
 
-        self.btn_fullstop = QtGui.QPushButton(self.widget_5)
-        self.btn_fullstop.setGeometry(QtCore.QRect(0, 10, 71, 61))
-        self.btn_fullstop.setStyleSheet("border: 1px solid black")
-        self.btn_fullstop.setObjectName("btn_fullstop")
-        self.btn_fullstop.setText(". ")
-        self.btn_fullstop.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_fullstop.text()))
+        self.btn_a = QtGui.QPushButton(self.widget_5)
+        self.btn_a.setGeometry(QtCore.QRect(0, 10, 71, 61))
+        self.btn_a.setStyleSheet("border: 1px solid black")
+        self.btn_a.setObjectName("btn_a")
+        self.btn_a.setText("a ")
+        self.btn_a.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_a.text()))
 
-        self.btn_comma = QtGui.QPushButton(self.widget_5)
-        self.btn_comma.setGeometry(QtCore.QRect(70, 10, 71, 61))
-        self.btn_comma.setStyleSheet("border: 1px solid black")
-        self.btn_comma.setObjectName("btn_comma")
-        self.btn_comma.setText(", ")
-        self.btn_comma.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_comma.text()))
+        self.btn_an = QtGui.QPushButton(self.widget_5)
+        self.btn_an.setGeometry(QtCore.QRect(70, 10, 71, 61))
+        self.btn_an.setStyleSheet("border: 1px solid black")
+        self.btn_an.setObjectName("btn_an")
+        self.btn_an.setText("an ")
+        self.btn_an.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_an.text()))
 
-        self.btn_qmark = QtGui.QPushButton(self.widget_5)
-        self.btn_qmark.setGeometry(QtCore.QRect(140, 10, 71, 61))
-        self.btn_qmark.setStyleSheet("border: 1px solid black")
-        self.btn_qmark.setObjectName("btn_qmark")
-        self.btn_qmark.setText("? ")
-        self.btn_qmark.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_qmark.text()))
+        self.btn_the = QtGui.QPushButton(self.widget_5)
+        self.btn_the.setGeometry(QtCore.QRect(140, 10, 71, 61))
+        self.btn_the.setStyleSheet("border: 1px solid black")
+        self.btn_the.setObjectName("btn_the")
+        self.btn_the.setText("the ")
+        self.btn_the.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_the.text()))
 
-        self.btn_b2m_qu = QtGui.QPushButton(self.widget_5)
-        self.btn_b2m_qu.setGeometry(QtCore.QRect(420, 310, 71, 61))
-        self.btn_b2m_qu.setStyleSheet("border: 1px solid black")
-        self.btn_b2m_qu.setObjectName("btn_b2m_qu")
-        self.btn_b2m_qu.setText("Return")
-        self.btn_b2m_qu.clicked.connect(lambda: self.punctWidgetClose(self.widget, self.widget_5))
+        self.btn_some = QtGui.QPushButton(self.widget_5)
+        self.btn_some.setGeometry(QtCore.QRect(0, 70, 71, 61))
+        self.btn_some.setStyleSheet("border: 1px solid black")
+        self.btn_some.setObjectName("btn_some")
+        self.btn_some.setText("some ")
+        self.btn_some.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_some.text()))
+
+        self.btn_few = QtGui.QPushButton(self.widget_5)
+        self.btn_few.setGeometry(QtCore.QRect(70, 70, 71, 61))
+        self.btn_few.setStyleSheet("border: 1px solid black")
+        self.btn_few.setObjectName("btn_few")
+        self.btn_few.setText("few ")
+        self.btn_few.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_few.text()))
+
+        self.btn_one = QtGui.QPushButton(self.widget_5)
+        self.btn_one.setGeometry(QtCore.QRect(140, 70, 71, 61))
+        self.btn_one.setStyleSheet("border: 1px solid black")
+        self.btn_one.setObjectName("btn_one")
+        self.btn_one.setText("one ")
+        self.btn_one.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_one.text()))
+
+        self.btn_b2m_art = QtGui.QPushButton(self.widget_5)
+        self.btn_b2m_art.setGeometry(QtCore.QRect(420, 310, 71, 61))
+        self.btn_b2m_art.setStyleSheet("border: 1px solid black")
+        self.btn_b2m_art.setObjectName("btn_b2m_art")
+        self.btn_b2m_art.setText("Return")
+        self.btn_b2m_art.clicked.connect(lambda: self.funcReverse(self.widget, self.widget_5))
 
         """>>>>>>>>>>> Object name: do_widget Description: To Do conjugations do/done/doing"""
 
@@ -628,7 +656,7 @@ class Ui_MainWindow(object):
         self.btn_b2m_do.setStyleSheet("border: 1px solid black")
         self.btn_b2m_do.setObjectName("btn_b2m_do")
         self.btn_b2m_do.setText("Return")
-        self.btn_b2m_do.clicked.connect(lambda: self.doWidgetClose(self.widget, self.do_widget))  
+        self.btn_b2m_do.clicked.connect(lambda: self.funcReverse(self.widget, self.do_widget))  
 
         """>>>>>>>>>> Object name: go_Widget Description: go conjugations <<<<<<<<<<"""
 
@@ -684,7 +712,7 @@ class Ui_MainWindow(object):
         self.btn_b2m_go.setStyleSheet("border: 1px solid black")
         self.btn_b2m_go.setObjectName("btn_b2m_go")
         self.btn_b2m_go.setText("Return")
-        self.btn_b2m_go.clicked.connect(lambda: self.doWidgetClose(self.widget, self.go_widget))  
+        self.btn_b2m_go.clicked.connect(lambda: self.funcReverse(self.widget, self.go_widget))  
 
         """>>>>>>>>>> Object name: come_Widget Description: come conjugations<<<<<<<<<<"""
 
@@ -719,7 +747,7 @@ class Ui_MainWindow(object):
         self.btn_b2m_come.setStyleSheet("border: 1px solid black")
         self.btn_b2m_come.setObjectName("btn_b2m_come")
         self.btn_b2m_come.setText("Return")
-        self.btn_b2m_come.clicked.connect(lambda: self.doWidgetClose(self.widget, self.come_widget)) 
+        self.btn_b2m_come.clicked.connect(lambda: self.funcReverse(self.widget, self.come_widget)) 
 
         """>>>>>>>>>> Object name: want_Widget Description: want conjugations<<<<<<<<<<"""
 
@@ -742,15 +770,21 @@ class Ui_MainWindow(object):
         self.btn_wanted.setText("wanted ")
         self.btn_wanted.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_wanted.text()))
 
+        self.btn_wantto = QtGui.QPushButton(self.want_widget)
+        self.btn_wantto.setGeometry(QtCore.QRect(140, 10, 71, 61))
+        self.btn_wantto.setStyleSheet("border: 1px solid black")
+        self.btn_wantto.setObjectName("btn_wantto")
+        self.btn_wantto.setText("want to ")
+        self.btn_wantto.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_wantto.text()))
+
         self.btn_b2m_want = QtGui.QPushButton(self.want_widget)
         self.btn_b2m_want.setGeometry(QtCore.QRect(420, 310, 71, 61))
         self.btn_b2m_want.setStyleSheet("border: 1px solid black")
         self.btn_b2m_want.setObjectName("btn_b2m_want")
         self.btn_b2m_want.setText("Return")
-        self.btn_b2m_want.clicked.connect(lambda: self.wantWidgetClose(self.widget, self.want_widget))
+        self.btn_b2m_want.clicked.connect(lambda: self.funcReverse(self.widget, self.want_widget))
 
         """>>>>>>>>>> Object name: drink_Widget Description: drink conjugations <<<<<<<<<<"""
-
 
         self.drink_widget = QtGui.QWidget(self.centralwidget)
         self.drink_widget.setGeometry(QtCore.QRect(0, 50, 491, 371))
@@ -783,16 +817,308 @@ class Ui_MainWindow(object):
         self.btn_b2m_drink.setStyleSheet("border: 1px solid black")
         self.btn_b2m_drink.setObjectName("btn_b2m_drink")
         self.btn_b2m_drink.setText("Return")
-        self.btn_b2m_drink.clicked.connect(lambda: self.drinkWidgetClose(self.widget, self.drink_widget))
+        self.btn_b2m_drink.clicked.connect(lambda: self.funcReverse(self.widget, self.drink_widget))
 
+        """>>>>>>>>>> Object name: home_Group Description: home group words <<<<<<<<<<"""
 
+        self.home_Group = QtGui.QWidget(self.centralwidget)
+        self.home_Group.setGeometry(QtCore.QRect(0, 50, 491, 371))
+        self.home_Group.setObjectName("home_Group")
+        self.home_Group.hide()
 
+        self.btn_house = QtGui.QPushButton(self.home_Group)
+        self.btn_house.setGeometry(QtCore.QRect(0, 10, 71, 61))
+        self.btn_house.setStyleSheet("border: 1px solid black")
+        self.btn_house.setObjectName("btn_drink")
+        self.btn_house.setText("house ")
+        self.btn_house.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_house.text()))
 
+        self.btn_kitchen = QtGui.QPushButton(self.home_Group)
+        self.btn_kitchen.setGeometry(QtCore.QRect(70, 10, 71, 61))
+        self.btn_kitchen.setStyleSheet("border: 1px solid black")
+        self.btn_kitchen.setObjectName("btn_kitchen")
+        self.btn_kitchen.setText("kitchen ")
+        self.btn_kitchen.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_kitchen.text()))
 
+        self.btn_tv = QtGui.QPushButton(self.home_Group)
+        self.btn_tv.setGeometry(QtCore.QRect(140, 10, 71, 61))
+        self.btn_tv.setStyleSheet("border: 1px solid black")
+        self.btn_tv.setObjectName("btn_tv")
+        self.btn_tv.setText("TV ")
+        self.btn_tv.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_tv.text()))
 
+        self.btn_b2m_home = QtGui.QPushButton(self.home_Group)
+        self.btn_b2m_home.setGeometry(QtCore.QRect(420, 310, 71, 61))
+        self.btn_b2m_home.setStyleSheet("border: 1px solid black")
+        self.btn_b2m_home.setObjectName("btn_b2m_drink")
+        self.btn_b2m_home.setText("Return")
+        self.btn_b2m_home.clicked.connect(lambda: self.funcReverse(self.widget, self.home_Group))
 
+        """>>>>>>>>>>Object name: school_Group Description: school group words<<<<<<<<<<"""
 
+        self.school_Group = QtGui.QWidget(self.centralwidget)
+        self.school_Group.setGeometry(QtCore.QRect(0, 50, 491, 371))
+        self.school_Group.setObjectName("school_Group")
+        self.school_Group.hide()
 
+        self.btn_school = QtGui.QPushButton(self.school_Group)
+        self.btn_school.setGeometry(QtCore.QRect(0, 10, 71, 61))
+        self.btn_school.setStyleSheet("border: 1px solid black")
+        self.btn_school.setObjectName("btn_drink")
+        self.btn_school.setText("school ")
+        self.btn_school.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_school.text()))
+
+        self.btn_maths = QtGui.QPushButton(self.school_Group)
+        self.btn_maths.setGeometry(QtCore.QRect(70, 10, 71, 61))
+        self.btn_maths.setStyleSheet("border: 1px solid black")
+        self.btn_maths.setObjectName("btn_maths")
+        self.btn_maths.setText("maths ")
+        self.btn_maths.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_maths.text()))
+
+        self.btn_pencil = QtGui.QPushButton(self.school_Group)
+        self.btn_pencil.setGeometry(QtCore.QRect(140, 10, 71, 61))
+        self.btn_pencil.setStyleSheet("border: 1px solid black")
+        self.btn_pencil.setObjectName("btn_pencil")
+        self.btn_pencil.setText("pencil ")
+        self.btn_pencil.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_pencil.text()))
+
+        self.btn_b2m_school = QtGui.QPushButton(self.school_Group)
+        self.btn_b2m_school.setGeometry(QtCore.QRect(420, 310, 71, 61))
+        self.btn_b2m_school.setStyleSheet("border: 1px solid black")
+        self.btn_b2m_school.setObjectName("btn_b2m_school")
+        self.btn_b2m_school.setText("Return")
+        self.btn_b2m_school.clicked.connect(lambda: self.funcReverse(self.widget, self.school_Group))
+
+        """>>>>>>>>>>Object name: sports_Group Description: sport group words<<<<<<<<<<"""
+
+        self.sports_Group = QtGui.QWidget(self.centralwidget)
+        self.sports_Group.setGeometry(QtCore.QRect(0, 50, 491, 371))
+        self.sports_Group.setObjectName("sports_Group")
+        self.sports_Group.hide()
+
+        self.btn_football = QtGui.QPushButton(self.sports_Group)
+        self.btn_football.setGeometry(QtCore.QRect(0, 10, 71, 61))
+        self.btn_football.setStyleSheet("border: 1px solid black")
+        self.btn_football.setObjectName("btn_football")
+        self.btn_football.setText("football ")
+        self.btn_football.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_football.text()))
+
+        self.btn_to_play  = QtGui.QPushButton(self.sports_Group)
+        self.btn_to_play.setGeometry(QtCore.QRect(70, 10, 71, 61))
+        self.btn_to_play.setStyleSheet("border: 1px solid black")
+        self.btn_to_play.setObjectName("btn_to_play")
+        self.btn_to_play.setText("to play ")
+        self.btn_to_play.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_to_play.text()))
+
+        self.btn_tennis = QtGui.QPushButton(self.sports_Group)
+        self.btn_tennis.setGeometry(QtCore.QRect(140, 10, 71, 61))
+        self.btn_tennis.setStyleSheet("border: 1px solid black")
+        self.btn_tennis.setObjectName("btn_tennis")
+        self.btn_tennis.setText("tennis ")
+        self.btn_tennis.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_tennis.text()))
+
+        self.btn_b2m_sports = QtGui.QPushButton(self.sports_Group)
+        self.btn_b2m_sports.setGeometry(QtCore.QRect(420, 310, 71, 61))
+        self.btn_b2m_sports.setStyleSheet("border: 1px solid black")
+        self.btn_b2m_sports.setObjectName("btn_b2m_sports")
+        self.btn_b2m_sports.setText("Return")
+        self.btn_b2m_sports.clicked.connect(lambda: self.funcReverse(self.widget, self.sports_Group))
+
+        """>>>>>>>>>> Object name: prep_widget Description: widget containing prepositions<<<<<<<<<<"""
+
+        self.prep_widget = QtGui.QWidget(self.centralwidget)
+        self.prep_widget.setGeometry(QtCore.QRect(0, 50, 491, 371))
+        self.prep_widget.setObjectName("prep_widget")
+        self.prep_widget.hide()
+
+        self.btn_at = QtGui.QPushButton(self.prep_widget)
+        self.btn_at.setGeometry(QtCore.QRect(0, 10, 71, 61))
+        self.btn_at.setStyleSheet("border: 1px solid black")
+        self.btn_at.setObjectName("btn_at")
+        self.btn_at.setText("at ")
+        self.btn_at.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_at.text()))
+
+        self.btn_as = QtGui.QPushButton(self.prep_widget)
+        self.btn_as.setGeometry(QtCore.QRect(70, 10, 71, 61))
+        self.btn_as.setStyleSheet("border: 1px solid black")
+        self.btn_as.setObjectName("btn_as")
+        self.btn_as.setText("as ")
+        self.btn_as.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_as.text()))
+
+        self.btn_with = QtGui.QPushButton(self.prep_widget)
+        self.btn_with.setGeometry(QtCore.QRect(140, 10, 71, 61))
+        self.btn_with.setStyleSheet("border: 1px solid black")
+        self.btn_with.setObjectName("btn_with")
+        self.btn_with.setText("with ")
+        self.btn_with.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_with.text()))
+
+        self.btn_but = QtGui.QPushButton(self.prep_widget)
+        self.btn_but.setGeometry(QtCore.QRect(0, 70, 71, 61))
+        self.btn_but.setStyleSheet("border: 1px solid black")
+        self.btn_but.setObjectName("btn_but")
+        self.btn_but.setText("but ")
+        self.btn_but.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_but.text()))
+
+        self.btn_in = QtGui.QPushButton(self.prep_widget)
+        self.btn_in.setGeometry(QtCore.QRect(70, 70, 71, 61))
+        self.btn_in.setStyleSheet("border: 1px solid black")
+        self.btn_in.setObjectName("btn_in")
+        self.btn_in.setText("in ")
+        self.btn_in.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_in.text()))
+
+        self.btn_before = QtGui.QPushButton(self.prep_widget)
+        self.btn_before.setGeometry(QtCore.QRect(140, 70, 71, 61))
+        self.btn_before.setStyleSheet("border: 1px solid black")
+        self.btn_before.setObjectName("btn_before")
+        self.btn_before.setText("before ")
+        self.btn_before.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_before.text()))
+
+        self.btn_b2m_prep = QtGui.QPushButton(self.prep_widget)
+        self.btn_b2m_prep.setGeometry(QtCore.QRect(420, 310, 71, 61))
+        self.btn_b2m_prep.setStyleSheet("border: 1px solid black")
+        self.btn_b2m_prep.setObjectName("btn_b2m_prep")
+        self.btn_b2m_prep.setText("Return")
+        self.btn_b2m_prep.clicked.connect(lambda: self.funcReverse(self.widget, self.prep_widget))
+
+        """>>>>>>>>>> Object name: eat_widget description: conjugations for the verb eat <<<<<<<<<<"""
+
+        self.eat_widget = QtGui.QWidget(self.centralwidget)
+        self.eat_widget.setGeometry(QtCore.QRect(0, 50, 491, 371))
+        self.eat_widget.setObjectName("eat_widget")
+        self.eat_widget.hide()
+
+        self.btn_eat = QtGui.QPushButton(self.eat_widget)
+        self.btn_eat.setGeometry(QtCore.QRect(0, 10, 71, 61))
+        self.btn_eat.setStyleSheet("border: 1px solid black")
+        self.btn_eat.setObjectName("btn_eat")
+        self.btn_eat.setText("eat ")
+        self.btn_eat.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_eat.text()))
+
+        self.btn_ate = QtGui.QPushButton(self.eat_widget)
+        self.btn_ate.setGeometry(QtCore.QRect(70, 10, 71, 61))
+        self.btn_ate.setStyleSheet("border: 1px solid black")
+        self.btn_ate.setObjectName("btn_ate")
+        self.btn_ate.setText("ate ")
+        self.btn_ate.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_ate.text()))
+
+        self.btn_eating = QtGui.QPushButton(self.eat_widget)
+        self.btn_eating.setGeometry(QtCore.QRect(140, 10, 71, 61))
+        self.btn_eating.setStyleSheet("border: 1px solid black")
+        self.btn_eating.setObjectName("btn_eating")
+        self.btn_eating.setText("eating ")
+        self.btn_eating.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_eating.text()))
+
+        self.btn_eaten = QtGui.QPushButton(self.eat_widget)
+        self.btn_eaten.setGeometry(QtCore.QRect(0, 70, 71, 61))
+        self.btn_eaten.setStyleSheet("border: 1px solid black")
+        self.btn_eaten.setObjectName("btn_eaten")
+        self.btn_eaten.setText("eaten ")
+        self.btn_eaten.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_eaten.text()))
+
+        self.btn_b2m_eat = QtGui.QPushButton(self.eat_widget)
+        self.btn_b2m_eat.setGeometry(QtCore.QRect(420, 310, 71, 61))
+        self.btn_b2m_eat.setStyleSheet("border: 1px solid black")
+        self.btn_b2m_eat.setObjectName("btn_b2m_eat")
+        self.btn_b2m_eat.setText("Return")
+        self.btn_b2m_eat.clicked.connect(lambda: self.funcReverse(self.widget, self.eat_widget))
+
+        """>>>>>>>>>> Object name: pointers_widget description: this, that, those, there <<<<<<<<<<"""
+
+        self.pointers_widget = QtGui.QWidget(self.centralwidget)
+        self.pointers_widget.setGeometry(QtCore.QRect(0, 50, 491, 371))
+        self.pointers_widget.setObjectName("pointers_widget")
+        self.pointers_widget.hide()
+
+        self.btn_this = QtGui.QPushButton(self.pointers_widget)
+        self.btn_this.setGeometry(QtCore.QRect(0, 10, 71, 61))
+        self.btn_this.setStyleSheet("border: 1px solid black")
+        self.btn_this.setObjectName("btn_this")
+        self.btn_this.setText("this ")
+        self.btn_this.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_this.text()))
+
+        self.btn_that = QtGui.QPushButton(self.pointers_widget)
+        self.btn_that.setGeometry(QtCore.QRect(70, 10, 71, 61))
+        self.btn_that.setStyleSheet("border: 1px solid black")
+        self.btn_that.setObjectName("btn_that")
+        self.btn_that.setText("that ")
+        self.btn_that.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_that.text()))
+
+        self.btn_these = QtGui.QPushButton(self.pointers_widget)
+        self.btn_these.setGeometry(QtCore.QRect(140, 10, 71, 61))
+        self.btn_these.setStyleSheet("border: 1px solid black")
+        self.btn_these.setObjectName("btn_these")
+        self.btn_these.setText("these ")
+        self.btn_these.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_these.text()))
+
+        self.btn_those = QtGui.QPushButton(self.pointers_widget)
+        self.btn_those.setGeometry(QtCore.QRect(0, 70, 71, 61))
+        self.btn_those.setStyleSheet("border: 1px solid black")
+        self.btn_those.setObjectName("btn_those")
+        self.btn_those.setText("those ")
+        self.btn_those.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_those.text()))
+
+        self.btn_b2m_pointers = QtGui.QPushButton(self.pointers_widget)
+        self.btn_b2m_pointers.setGeometry(QtCore.QRect(420, 310, 71, 61))
+        self.btn_b2m_pointers.setStyleSheet("border: 1px solid black")
+        self.btn_b2m_pointers.setObjectName("btn_b2m_pointers")
+        self.btn_b2m_pointers.setText("Return")
+        self.btn_b2m_pointers.clicked.connect(lambda: self.funcReverse(self.widget, self.pointers_widget))
+
+        """>>>>>>>>>> Object name: food_widget Description: food list<<<<<<<<<<"""
+
+        self.food_widget = QtGui.QWidget(self.centralwidget)
+        self.food_widget.setGeometry(QtCore.QRect(0, 50, 491, 371))
+        self.food_widget.setObjectName("food_widget")
+        self.food_widget.hide()
+
+        self.btn_apple = QtGui.QPushButton(self.food_widget)
+        self.btn_apple.setGeometry(QtCore.QRect(0, 10, 71, 61))
+        self.btn_apple.setStyleSheet("border: 1px solid black")
+        self.btn_apple.setObjectName("btn_apple")
+        self.btn_apple.setText("apple ")
+        self.btn_apple.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_apple.text()))
+
+        self.btn_pizza = QtGui.QPushButton(self.food_widget)
+        self.btn_pizza.setGeometry(QtCore.QRect(70, 10, 71, 61))
+        self.btn_pizza.setStyleSheet("border: 1px solid black")
+        self.btn_pizza.setObjectName("btn_pizza")
+        self.btn_pizza.setText("pizza ")
+        self.btn_pizza.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_pizza.text()))
+
+        self.btn_chocolate = QtGui.QPushButton(self.food_widget)
+        self.btn_chocolate.setGeometry(QtCore.QRect(140, 10, 71, 61))
+        self.btn_chocolate.setStyleSheet("border: 1px solid black")
+        self.btn_chocolate.setObjectName("btn_chocolate")
+        self.btn_chocolate.setText("chocolate ")
+        self.btn_chocolate.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_chocolate.text()))
+
+        self.btn_kimchi = QtGui.QPushButton(self.food_widget)
+        self.btn_kimchi.setGeometry(QtCore.QRect(0, 70, 71, 61))
+        self.btn_kimchi.setStyleSheet("border: 1px solid black")
+        self.btn_kimchi.setObjectName("btn_kimchi")
+        self.btn_kimchi.setText("kimchi ")
+        self.btn_kimchi.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_kimchi.text()))
+
+        self.btn_steak = QtGui.QPushButton(self.food_widget)
+        self.btn_steak.setGeometry(QtCore.QRect(70, 70, 71, 61))
+        self.btn_steak.setStyleSheet("border: 1px solid black")
+        self.btn_steak.setObjectName("btn_steak")
+        self.btn_steak.setText("steak ")
+        self.btn_steak.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_steak.text()))
+
+        self.btn_salmon = QtGui.QPushButton(self.food_widget)
+        self.btn_salmon.setGeometry(QtCore.QRect(140, 70, 71, 61))
+        self.btn_salmon.setStyleSheet("border: 1px solid black")
+        self.btn_salmon.setObjectName("btn_salmon")
+        self.btn_salmon.setText("Salmon ")
+        self.btn_salmon.clicked.connect(lambda: self.SentenceBuilder.insert(self.btn_salmon.text()))
+
+        self.btn_b2m_food = QtGui.QPushButton(self.food_widget)
+        self.btn_b2m_food.setGeometry(QtCore.QRect(420, 310, 71, 61))
+        self.btn_b2m_food.setStyleSheet("border: 1px solid black")
+        self.btn_b2m_food.setObjectName("btn_b2m_food")
+        self.btn_b2m_food.setText("Return")
+        self.btn_b2m_food.clicked.connect(lambda: self.funcReverse(self.widget, self.food_widget))
 
         """ End of Duncan's code """
 
@@ -848,12 +1174,12 @@ class Ui_MainWindow(object):
 
         self.btn_Pron_She.setText(QtGui.QApplication.translate("MainWindow", "She", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Cmn_No.setText(QtGui.QApplication.translate("MainWindow", "No", None, QtGui.QApplication.UnicodeUTF8))
-        self.btn_Verb_Look.setText(QtGui.QApplication.translate("MainWindow", "See", None, QtGui.QApplication.UnicodeUTF8))
+        self.btn_Prep.setText(QtGui.QApplication.translate("MainWindow", "Prepositions", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Clear.setText(QtGui.QApplication.translate("MainWindow", "Clear", None, QtGui.QApplication.UnicodeUTF8))
-        self.btn_Verb_Hear.setText(QtGui.QApplication.translate("MainWindow", "Hear", None, QtGui.QApplication.UnicodeUTF8))
+        self.btn_Food.setText(QtGui.QApplication.translate("MainWindow", "Food", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Cmn_Time.setText(QtGui.QApplication.translate("MainWindow", "What time\n"
 " is it?", None, QtGui.QApplication.UnicodeUTF8))
-        self.btn_Nouns.setText(QtGui.QApplication.translate("MainWindow", "Nouns", None, QtGui.QApplication.UnicodeUTF8))
+        self.btn_Sports.setText(QtGui.QApplication.translate("MainWindow", "Sports", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Verb_Go.setText(QtGui.QApplication.translate("MainWindow", "Go", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Cmn_And.setText(QtGui.QApplication.translate("MainWindow", "and", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Pron_I.setText(QtGui.QApplication.translate("MainWindow", "I", None, QtGui.QApplication.UnicodeUTF8))
@@ -867,10 +1193,10 @@ class Ui_MainWindow(object):
         self.btn_Pron_Mine.setText(QtGui.QApplication.translate("MainWindow", "Mine", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Cmn_Feeling.setText(QtGui.QApplication.translate("MainWindow", "I\'m feeling", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Verb_Like.setText(QtGui.QApplication.translate("MainWindow", "Like", None, QtGui.QApplication.UnicodeUTF8))
-        self.btn_punctuation.setText(QtGui.QApplication.translate("MainWindow", "Punctuation", None, QtGui.QApplication.UnicodeUTF8))
+        self.btn_Articles.setText(QtGui.QApplication.translate("MainWindow", "Articles", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Pron_People.setText(QtGui.QApplication.translate("MainWindow", "People", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Pron_You.setText(QtGui.QApplication.translate("MainWindow", "You", None, QtGui.QApplication.UnicodeUTF8))
-        self.btn_Translation.setText(QtGui.QApplication.translate("MainWindow", "Translate", None, QtGui.QApplication.UnicodeUTF8))
+        self.btn_Cmn_Or.setText(QtGui.QApplication.translate("MainWindow", "or", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Cmn_IDK.setText(QtGui.QApplication.translate("MainWindow", "I don\'t know", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Verb_Eat.setText(QtGui.QApplication.translate("MainWindow", "Eat", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Cmn_Goodbye.setText(QtGui.QApplication.translate("MainWindow", "Goodbye", None, QtGui.QApplication.UnicodeUTF8))
@@ -880,15 +1206,15 @@ class Ui_MainWindow(object):
         self.btn_Pron_We.setText(QtGui.QApplication.translate("MainWindow", "We", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Questions.setText(QtGui.QApplication.translate("MainWindow", "Questions\n"
 " ?", None, QtGui.QApplication.UnicodeUTF8))
-        self.btn_Verb_Wear.setText(QtGui.QApplication.translate("MainWindow", "Wear", None, QtGui.QApplication.UnicodeUTF8))
+        self.btn_Pointers.setText(QtGui.QApplication.translate("MainWindow", "Pointers", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Verb_Come.setText(QtGui.QApplication.translate("MainWindow", "Come", None, QtGui.QApplication.UnicodeUTF8))
-        self.btn_Menu.setText(QtGui.QApplication.translate("MainWindow", "Menu", None, QtGui.QApplication.UnicodeUTF8))
+        self.btn_School.setText(QtGui.QApplication.translate("MainWindow", "School", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Pron_He.setText(QtGui.QApplication.translate("MainWindow", "He", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Verb_Drink.setText(QtGui.QApplication.translate("MainWindow", "Drink", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Cmn_Hungry.setText(QtGui.QApplication.translate("MainWindow", "I\'m hungry", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Verb_Want.setText(QtGui.QApplication.translate("MainWindow", "Want", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Cmn_Howareyou.setText(QtGui.QApplication.translate("MainWindow", "How are\nyou?", None, QtGui.QApplication.UnicodeUTF8))
-        self.btn_Cmn_Sizes.setText(QtGui.QApplication.translate("MainWindow", "Sizes", None, QtGui.QApplication.UnicodeUTF8))
+        self.btn_Cmn_Home.setText(QtGui.QApplication.translate("MainWindow", "Home", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Phrases.setText(QtGui.QApplication.translate("MainWindow", "Phrases", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Speak.setText(QtGui.QApplication.translate("MainWindow", "Speak", None, QtGui.QApplication.UnicodeUTF8))
         #self.btn_translation_2.setText(QtGui.QApplication.translate("MainWindow", "Delete \n"
@@ -899,9 +1225,6 @@ class Ui_MainWindow(object):
         self.btn_How.setText(QtGui.QApplication.translate("MainWindow", "How", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Which.setText(QtGui.QApplication.translate("MainWindow", "Which", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_Who.setText(QtGui.QApplication.translate("MainWindow", "Who", None, QtGui.QApplication.UnicodeUTF8))
-
-
-        """ is widget buttons """
         self.btn_is.setText(QtGui.QApplication.translate("MainWindow", "is", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_is_not.setText(QtGui.QApplication.translate("MainWindow", "is not", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_am.setText(QtGui.QApplication.translate("MainWindow", "am", None, QtGui.QApplication.UnicodeUTF8))
@@ -915,7 +1238,7 @@ class Ui_MainWindow(object):
         self.btn_were.setText(QtGui.QApplication.translate("MainWindow", "were", None, QtGui.QApplication.UnicodeUTF8))
         self.btn_were_not.setText(QtGui.QApplication.translate("MainWindow", "were not", None, QtGui.QApplication.UnicodeUTF8))
 
-        """ Open question Widget and close question widget """
+        """ Opening sub widgets and closing sub widgets """
     def func(self, widget, widget2):
         widget.hide()
         widget2.show()
@@ -923,82 +1246,6 @@ class Ui_MainWindow(object):
     def funcReverse(self, widget, widget2):
         widget.show()
         widget2.hide()
-
-        """ Open is Widget and close is widget """
-    def isWidgetfunc(self, widget, widget_3):
-        widget.hide()
-        widget_3.show()
-
-    def isWidgetReverse(self, widget, widget_3):
-        widget.show()
-        widget_3.hide()
-
-        """ Open Phrases Widget and close phrase widget  """
-    def phrasesWidgetOpen(self, widget, widget_4):
-        widget.hide()
-        widget_4.show()
-
-    def phrasesWidgetClose(self, widget, widget_4):
-        widget.show()
-        widget_4.hide()
-
-        """Open punct. widget and close punct. widget"""
-    def punctWidgetOpen(self, widget, widget_5):
-        widget.hide()
-        widget_5.show()
-
-    def punctWidgetClose(self, widget, widget_5):
-        widget.show()
-        widget_5.hide()
-
-        """Open do_widget and close do_widget"""
-    def doWidgetOpen(self, widget, do_widget):
-        widget.hide()
-        do_widget.show()
-
-    def doWidgetClose(self, widget, do_widget):
-        widget.show()
-        do_widget.hide()
-
-        """Open go_Widget and close go_Widget"""
-    def goWidgetOpen(self, widget, go_Widget):
-        widget.hide()
-        go_Widget.show()
-
-    def goWidgetClose(self, widget, go_widget):
-        widget.show()
-        go_widget.hide()    
-
-        """Open come_Widget and close come_Widget"""
-    def comeWidgetOpen(self, widget, come_Widget):
-        widget.hide()
-        come_Widget.show()
-
-    def comeWidgetClose(self, widget, come_widget):
-        widget.show()
-        come_widget.hide() 
-
-        """Open want_Widget and close want_Widget"""
-    def wantWidgetOpen(self, widget, want_Widget):
-        widget.hide()
-        want_Widget.show()
-
-    def wantWidgetClose(self, widget, want_widget):
-        widget.show()
-        want_widget.hide() 
-
-        """Open drink_Widget and close drink_Widget"""
-    def drinkWidgetOpen(self, widget, drink_widget):
-        widget.hide()
-        drink_widget.show()
-
-    def drinkWidgetClose(self, widget, drink_widget):
-        widget.show()
-        drink_widget.hide() 
-
-
-
-
 
     def wordDelete(self):
         self.phraseList.pop()
